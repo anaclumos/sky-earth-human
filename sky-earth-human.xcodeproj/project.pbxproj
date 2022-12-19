@@ -16,6 +16,8 @@
 		50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */; };
 		50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */; };
 		50AFDDCD29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */; };
+		50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */; };
+		50AFDDE4295012A5001BF44D /* keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50AFDDDD295012A5001BF44D /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,28 @@
 			remoteGlobalIDString = 50AFDDA529501257001BF44D;
 			remoteInfo = "sky-earth-human";
 		};
+		50AFDDE2295012A5001BF44D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AFDD9E29501256001BF44D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AFDDDC295012A5001BF44D;
+			remoteInfo = keyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		50AFDDE8295012A5001BF44D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				50AFDDE4295012A5001BF44D /* keyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +72,9 @@
 		50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITests.swift; sourceTree = "<group>"; };
 		50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		50AFDDDD295012A5001BF44D /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		50AFDDE1295012A5001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +99,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50AFDDDA295012A5001BF44D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +115,7 @@
 				50AFDDA829501257001BF44D /* sky-earth-human */,
 				50AFDDBF29501258001BF44D /* sky-earth-humanTests */,
 				50AFDDC929501258001BF44D /* sky-earth-humanUITests */,
+				50AFDDDE295012A5001BF44D /* keyboard */,
 				50AFDDA729501257001BF44D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +126,7 @@
 				50AFDDA629501257001BF44D /* sky-earth-human.app */,
 				50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */,
 				50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */,
+				50AFDDDD295012A5001BF44D /* keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +170,15 @@
 			path = "sky-earth-humanUITests";
 			sourceTree = "<group>";
 		};
+		50AFDDDE295012A5001BF44D /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
+				50AFDDE1295012A5001BF44D /* Info.plist */,
+			);
+			path = keyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,10 +189,12 @@
 				50AFDDA229501257001BF44D /* Sources */,
 				50AFDDA329501257001BF44D /* Frameworks */,
 				50AFDDA429501257001BF44D /* Resources */,
+				50AFDDE8295012A5001BF44D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				50AFDDE3295012A5001BF44D /* PBXTargetDependency */,
 			);
 			name = "sky-earth-human";
 			productName = "sky-earth-human";
@@ -191,6 +237,23 @@
 			productReference = 50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		50AFDDDC295012A5001BF44D /* keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AFDDE5295012A5001BF44D /* Build configuration list for PBXNativeTarget "keyboard" */;
+			buildPhases = (
+				50AFDDD9295012A5001BF44D /* Sources */,
+				50AFDDDA295012A5001BF44D /* Frameworks */,
+				50AFDDDB295012A5001BF44D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = keyboard;
+			productName = keyboard;
+			productReference = 50AFDDDD295012A5001BF44D /* keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +275,9 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 50AFDDA529501257001BF44D;
 					};
+					50AFDDDC295012A5001BF44D = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = 50AFDDA129501256001BF44D /* Build configuration list for PBXProject "sky-earth-human" */;
@@ -230,6 +296,7 @@
 				50AFDDA529501257001BF44D /* sky-earth-human */,
 				50AFDDBB29501258001BF44D /* sky-earth-humanTests */,
 				50AFDDC529501258001BF44D /* sky-earth-humanUITests */,
+				50AFDDDC295012A5001BF44D /* keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +319,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		50AFDDC429501258001BF44D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDDB295012A5001BF44D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,6 +363,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50AFDDD9295012A5001BF44D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -301,6 +383,11 @@
 			isa = PBXTargetDependency;
 			target = 50AFDDA529501257001BF44D /* sky-earth-human */;
 			targetProxy = 50AFDDC729501258001BF44D /* PBXContainerItemProxy */;
+		};
+		50AFDDE3295012A5001BF44D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50AFDDDC295012A5001BF44D /* keyboard */;
+			targetProxy = 50AFDDE2295012A5001BF44D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -422,6 +509,7 @@
 		50AFDDD129501258001BF44D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +539,7 @@
 		50AFDDD229501258001BF44D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -553,6 +642,56 @@
 			};
 			name = Release;
 		};
+		50AFDDE6295012A5001BF44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = keyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50AFDDE7295012A5001BF44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = keyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,6 +727,15 @@
 			buildConfigurations = (
 				50AFDDD729501258001BF44D /* Debug */,
 				50AFDDD829501258001BF44D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AFDDE5295012A5001BF44D /* Build configuration list for PBXNativeTarget "keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AFDDE6295012A5001BF44D /* Debug */,
+				50AFDDE7295012A5001BF44D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
