@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
+		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
+		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
+		50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDB029501258001BF44D /* Preview Assets.xcassets */; };
+		50AFDDB329501258001BF44D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB229501258001BF44D /* Persistence.swift */; };
+		50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */; };
+		50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */; };
+		50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */; };
+		50AFDDCD29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50AFDDBD29501258001BF44D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AFDD9E29501256001BF44D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AFDDA529501257001BF44D;
+			remoteInfo = "sky-earth-human";
+		};
+		50AFDDC729501258001BF44D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AFDD9E29501256001BF44D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AFDDA529501257001BF44D;
+			remoteInfo = "sky-earth-human";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanApp.swift; sourceTree = "<group>"; };
+		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50AFDDAD29501258001BF44D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50AFDDB029501258001BF44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50AFDDB229501258001BF44D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sky_earth_human.xcdatamodel; sourceTree = "<group>"; };
+		50AFDDB729501258001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanTests.swift; sourceTree = "<group>"; };
+		50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITests.swift; sourceTree = "<group>"; };
+		50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50AFDDA329501257001BF44D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDB929501258001BF44D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDC329501258001BF44D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50AFDD9D29501256001BF44D = {
+			isa = PBXGroup;
+			children = (
+				50AFDDA829501257001BF44D /* sky-earth-human */,
+				50AFDDBF29501258001BF44D /* sky-earth-humanTests */,
+				50AFDDC929501258001BF44D /* sky-earth-humanUITests */,
+				50AFDDA729501257001BF44D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50AFDDA729501257001BF44D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDA629501257001BF44D /* sky-earth-human.app */,
+				50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */,
+				50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50AFDDA829501257001BF44D /* sky-earth-human */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
+				50AFDDAB29501257001BF44D /* ContentView.swift */,
+				50AFDDAD29501258001BF44D /* Assets.xcassets */,
+				50AFDDB229501258001BF44D /* Persistence.swift */,
+				50AFDDB729501258001BF44D /* Info.plist */,
+				50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */,
+				50AFDDAF29501258001BF44D /* Preview Content */,
+			);
+			path = "sky-earth-human";
+			sourceTree = "<group>";
+		};
+		50AFDDAF29501258001BF44D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDB029501258001BF44D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50AFDDBF29501258001BF44D /* sky-earth-humanTests */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */,
+			);
+			path = "sky-earth-humanTests";
+			sourceTree = "<group>";
+		};
+		50AFDDC929501258001BF44D /* sky-earth-humanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */,
+				50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */,
+			);
+			path = "sky-earth-humanUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50AFDDA529501257001BF44D /* sky-earth-human */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AFDDD029501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-human" */;
+			buildPhases = (
+				50AFDDA229501257001BF44D /* Sources */,
+				50AFDDA329501257001BF44D /* Frameworks */,
+				50AFDDA429501257001BF44D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sky-earth-human";
+			productName = "sky-earth-human";
+			productReference = 50AFDDA629501257001BF44D /* sky-earth-human.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50AFDDBB29501258001BF44D /* sky-earth-humanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AFDDD329501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-humanTests" */;
+			buildPhases = (
+				50AFDDB829501258001BF44D /* Sources */,
+				50AFDDB929501258001BF44D /* Frameworks */,
+				50AFDDBA29501258001BF44D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50AFDDBE29501258001BF44D /* PBXTargetDependency */,
+			);
+			name = "sky-earth-humanTests";
+			productName = "sky-earth-humanTests";
+			productReference = 50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50AFDDC529501258001BF44D /* sky-earth-humanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AFDDD629501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-humanUITests" */;
+			buildPhases = (
+				50AFDDC229501258001BF44D /* Sources */,
+				50AFDDC329501258001BF44D /* Frameworks */,
+				50AFDDC429501258001BF44D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50AFDDC829501258001BF44D /* PBXTargetDependency */,
+			);
+			name = "sky-earth-humanUITests";
+			productName = "sky-earth-humanUITests";
+			productReference = 50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50AFDD9E29501256001BF44D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					50AFDDA529501257001BF44D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					50AFDDBB29501258001BF44D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 50AFDDA529501257001BF44D;
+					};
+					50AFDDC529501258001BF44D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 50AFDDA529501257001BF44D;
+					};
+				};
+			};
+			buildConfigurationList = 50AFDDA129501256001BF44D /* Build configuration list for PBXProject "sky-earth-human" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50AFDD9D29501256001BF44D;
+			productRefGroup = 50AFDDA729501257001BF44D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50AFDDA529501257001BF44D /* sky-earth-human */,
+				50AFDDBB29501258001BF44D /* sky-earth-humanTests */,
+				50AFDDC529501258001BF44D /* sky-earth-humanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50AFDDA429501257001BF44D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */,
+				50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDBA29501258001BF44D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDC429501258001BF44D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50AFDDA229501257001BF44D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AFDDB329501258001BF44D /* Persistence.swift in Sources */,
+				50AFDDAC29501257001BF44D /* ContentView.swift in Sources */,
+				50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */,
+				50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDB829501258001BF44D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AFDDC229501258001BF44D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */,
+				50AFDDCD29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50AFDDBE29501258001BF44D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50AFDDA529501257001BF44D /* sky-earth-human */;
+			targetProxy = 50AFDDBD29501258001BF44D /* PBXContainerItemProxy */;
+		};
+		50AFDDC829501258001BF44D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50AFDDA529501257001BF44D /* sky-earth-human */;
+			targetProxy = 50AFDDC729501258001BF44D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		50AFDDCE29501258001BF44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		50AFDDCF29501258001BF44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50AFDDD129501258001BF44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sky-earth-human/Preview Content\"";
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50AFDDD229501258001BF44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sky-earth-human/Preview Content\"";
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50AFDDD429501258001BF44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-humanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sky-earth-human.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sky-earth-human";
+			};
+			name = Debug;
+		};
+		50AFDDD529501258001BF44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-humanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sky-earth-human.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sky-earth-human";
+			};
+			name = Release;
+		};
+		50AFDDD729501258001BF44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-humanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "sky-earth-human";
+			};
+			name = Debug;
+		};
+		50AFDDD829501258001BF44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QKPXP9788L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-humanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "sky-earth-human";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50AFDDA129501256001BF44D /* Build configuration list for PBXProject "sky-earth-human" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AFDDCE29501258001BF44D /* Debug */,
+				50AFDDCF29501258001BF44D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AFDDD029501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-human" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AFDDD129501258001BF44D /* Debug */,
+				50AFDDD229501258001BF44D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AFDDD329501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-humanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AFDDD429501258001BF44D /* Debug */,
+				50AFDDD529501258001BF44D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AFDDD629501258001BF44D /* Build configuration list for PBXNativeTarget "sky-earth-humanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AFDDD729501258001BF44D /* Debug */,
+				50AFDDD829501258001BF44D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */,
+			);
+			currentVersion = 50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */;
+			path = sky_earth_human.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 50AFDD9E29501256001BF44D /* Project object */;
+}
