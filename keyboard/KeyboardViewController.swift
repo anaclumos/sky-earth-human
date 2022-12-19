@@ -9,6 +9,7 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
   @IBOutlet var nextKeyboardButton: UIButton!
+  @IBOutlet var helloButton: UIButton!
 
   override func updateViewConstraints() {
     super.updateViewConstraints()
@@ -28,6 +29,18 @@ class KeyboardViewController: UIInputViewController {
 
     nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+    helloButton = UIButton(type: .system)
+    helloButton.setTitle("Hello", for: .normal)
+    helloButton.addTarget(self, action: #selector(helloButtonTapped), for: .touchUpInside)
+    helloButton.sizeToFit()
+    helloButton.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(helloButton)
+  }
+
+  @objc func helloButtonTapped() {
+    let proxy = textDocumentProxy as UITextDocumentProxy
+    proxy.insertText("Hello")
   }
 
   override func viewWillLayoutSubviews() {
