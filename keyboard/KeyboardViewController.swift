@@ -5,6 +5,7 @@
 //  Created by Sunghyun Cho on 12/19/22.
 //
 
+import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
@@ -18,11 +19,9 @@ class KeyboardViewController: UIInputViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     nextKeyboardButton = UIButton(type: .system)
-
     nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
     nextKeyboardButton.sizeToFit()
     nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-
     nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
 
     view.addSubview(nextKeyboardButton)
@@ -30,17 +29,13 @@ class KeyboardViewController: UIInputViewController {
     nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-    helloButton = UIButton(type: .system)
-    helloButton.setTitle("Hello", for: .normal)
-    helloButton.addTarget(self, action: #selector(helloButtonTapped), for: .touchUpInside)
-    helloButton.sizeToFit()
-    helloButton.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(helloButton)
-  }
-
-  @objc func helloButtonTapped() {
-    let proxy = textDocumentProxy as UITextDocumentProxy
-    proxy.insertText("Hello")
+    let keyboardView = UIHostingController(rootView: KeyboardView())
+    view.addSubview(keyboardView.view)
+    keyboardView.view.invalidateIntrinsicContentSize()
+    keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
+    keyboardView.view.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    keyboardView.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    addChild(keyboardView)
   }
 
   override func viewWillLayoutSubviews() {
