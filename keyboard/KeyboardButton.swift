@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct KeyboardButton: View {
+  @Environment(\.colorScheme) var colorScheme
   var text: String?
   var image: String?
-
   var action: () -> Void
   var body: some View {
     Button(action: action) {
@@ -19,14 +19,19 @@ struct KeyboardButton: View {
           .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
-          .background(Color(uiColor: UIColor.secondarySystemFill))
+          .background(
+            colorScheme == .dark ? Color(uiColor: UIColor.secondarySystemFill) : Color(uiColor: UIColor.systemGray6)
+          )
           .cornerRadius(5)
       } else if text != nil {
         Text(text!)
           .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
-          .background(Color(uiColor: UIColor.secondarySystemFill))
+          .background(
+            colorScheme == .dark ? Color(uiColor: UIColor.secondarySystemFill) : Color(uiColor: UIColor.systemGray6)
+          )
+          .kerning(2)
           .cornerRadius(5)
       }
     }

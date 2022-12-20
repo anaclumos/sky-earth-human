@@ -29,7 +29,7 @@ class KeyboardViewController: UIInputViewController {
     nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-    let keyboardView = UIHostingController(rootView: KeyboardView())
+    let keyboardView = UIHostingController(rootView: KeyboardView(buttonAction: buttonAction))
     view.addSubview(keyboardView.view)
     keyboardView.view.invalidateIntrinsicContentSize()
     keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
@@ -59,5 +59,45 @@ class KeyboardViewController: UIInputViewController {
       textColor = UIColor.black
     }
     nextKeyboardButton.setTitleColor(textColor, for: [])
+  }
+
+  func buttonAction(buttonIdx: Int) {
+    let proxy = textDocumentProxy
+    switch buttonIdx {
+    case 0:
+      proxy.insertText("ㅣ")
+    case 1:
+      proxy.insertText("•")
+    case 2:
+      proxy.insertText("ㅡ")
+    case 3:
+      proxy.deleteBackward()
+    case 4:
+      proxy.insertText("ㄱㅋ")
+    case 5:
+      proxy.insertText("ㄴㄹ")
+    case 6:
+      proxy.insertText("ㄷㅌ")
+    case 7:
+      proxy.insertText("\n")
+    case 8:
+      proxy.insertText("ㅂㅍ")
+    case 9:
+      proxy.insertText("ㅅㅎ")
+    case 10:
+      proxy.insertText("ㅈㅊ")
+    case 11:
+      proxy.insertText(".,?!")
+    case 12:
+      proxy.insertText("!#1")
+    case 13:
+      proxy.insertText("ㅇㅁ")
+    case 14:
+      proxy.insertText(" ")
+    case 15:
+      proxy.insertText(",")
+    default:
+      proxy.insertText(" ")
+    }
   }
 }

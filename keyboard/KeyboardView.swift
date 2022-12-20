@@ -8,34 +8,72 @@
 import SwiftUI
 
 struct KeyboardView: View {
+  @Environment(\.colorScheme) var colorScheme
+  var buttonAction: (Int) -> Void
+
   var body: some View {
     VStack {
       HStack {
-        KeyboardButton(text: "ㅣ", action: {})
-        KeyboardButton(text: "•", action: {})
-        KeyboardButton(text: "ㅡ", action: {})
-        KeyboardButton(image: "delete.left.fill", action: {})
+        KeyboardButton(text: "ㅣ", action: {
+          buttonAction(0)
+        })
+        KeyboardButton(text: "•", action: {
+          buttonAction(1)
+        })
+        KeyboardButton(text: "ㅡ", action: {
+          buttonAction(2)
+            
+        })
+        KeyboardButton(image: "delete.left.fill", action: {
+          buttonAction(3)
+        })
       }
       HStack {
-        KeyboardButton(text: "ㄱㅋ", action: {})
-        KeyboardButton(text: "ㄴㄹ", action: {})
-        KeyboardButton(text: "ㄷㅌ", action: {})
-        KeyboardButton(image: "return", action: {})
+        KeyboardButton(text: "ㄱㅋ", action: {
+          buttonAction(4)
+        })
+        KeyboardButton(text: "ㄴㄹ", action: {
+          buttonAction(5)
+        })
+        KeyboardButton(text: "ㄷㅌ", action: {
+          buttonAction(6)
+        })
+        KeyboardButton(image: "return", action: {
+          buttonAction(7)
+        })
       }
       HStack {
-        KeyboardButton(text: "ㅂㅍ", action: {})
-        KeyboardButton(text: "ㅅㅎ", action: {})
-        KeyboardButton(text: "ㅈㅊ", action: {})
-        KeyboardButton(text: ".,?!", action: {})
+        KeyboardButton(text: "ㅂㅍ", action: {
+          buttonAction(8)
+        })
+        KeyboardButton(text: "ㅅㅎ", action: {
+          buttonAction(9)
+        })
+        KeyboardButton(text: "ㅈㅊ", action: {
+          buttonAction(10)
+        })
+        KeyboardButton(text: ".,?!", action: {
+          buttonAction(11)
+        })
       }
       HStack {
-        KeyboardButton(text: "!#1", action: {})
-        KeyboardButton(text: "ㅇㅁ", action: {})
-        KeyboardButton(image: "space", action: {})
-        KeyboardButton(text: ",", action: {})
+        KeyboardButton(text: "!#1", action: {
+          buttonAction(12)
+        })
+        KeyboardButton(text: "ㅇㅁ", action: {
+          buttonAction(13)
+        })
+        KeyboardButton(image: "space", action: {
+          buttonAction(14)
+        })
+        KeyboardButton(text: ",", action: {
+          buttonAction(15)
+        })
       }
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
       .padding(10)
-      .background(Color(uiColor: UIColor.tertiarySystemBackground))
+      .background(
+        colorScheme == .dark ? Color(uiColor: UIColor.tertiarySystemBackground) : Color(red: 208 / 256, green: 212 / 256, blue: 216 / 256)
+      )
   }
 }
