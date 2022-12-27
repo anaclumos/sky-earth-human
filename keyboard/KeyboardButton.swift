@@ -16,7 +16,7 @@ struct KeyboardButton: View {
     Button(action: action) {
       if image != nil {
         Image(systemName: image!)
-          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
+          .frame(maxWidth: .infinity, minHeight: 70, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
@@ -25,7 +25,7 @@ struct KeyboardButton: View {
           .cornerRadius(5)
       } else if text != nil {
         Text(text!)
-          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
+          .frame(maxWidth: .infinity, minHeight: 70, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(

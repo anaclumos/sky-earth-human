@@ -12,6 +12,8 @@ class KeyboardViewController: UIInputViewController {
   @IBOutlet var nextKeyboardButton: UIButton!
   @IBOutlet var helloButton: UIButton!
 
+  var isEditingLastCharacter = false
+
   override func updateViewConstraints() {
     super.updateViewConstraints()
   }
@@ -29,7 +31,7 @@ class KeyboardViewController: UIInputViewController {
     nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-    let keyboardView = UIHostingController(rootView: KeyboardView(buttonAction: buttonAction))
+    let keyboardView = UIHostingController(rootView: KeyboardView(buttonAction: buttonAction, ㅇㅁ: ㅇㅁ))
     view.addSubview(keyboardView.view)
     keyboardView.view.invalidateIntrinsicContentSize()
     keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
@@ -65,39 +67,133 @@ class KeyboardViewController: UIInputViewController {
     let proxy = textDocumentProxy
     switch buttonIdx {
     case 0:
-      proxy.insertText("ㅣ")
+      인()
     case 1:
-      proxy.insertText("•")
+      천()
     case 2:
-      proxy.insertText("ㅡ")
+      지()
     case 3:
       proxy.deleteBackward()
+      isEditingLastCharacter = false
     case 4:
-      proxy.insertText("ㄱㅋ")
+      ㄱㅋ()
     case 5:
-      proxy.insertText("ㄴㄹ")
+      ㄴㄹ()
     case 6:
-      proxy.insertText("ㄷㅌ")
+      ㄷㅌ()
     case 7:
       proxy.insertText("\n")
     case 8:
-      proxy.insertText("ㅂㅍ")
+      ㅂㅍ()
     case 9:
-      proxy.insertText("ㅅㅎ")
+      ㅅㅎ()
     case 10:
-      proxy.insertText("ㅈㅊ")
+      ㅈㅊ()
     case 11:
-      proxy.insertText(".,?!")
+      quickSpecialCharacters()
     case 12:
-      proxy.insertText("!#1")
+      print("12")
     case 13:
-      proxy.insertText("ㅇㅁ")
+      ㅇㅁ()
     case 14:
-      proxy.insertText(" ")
+      isEditingLastCharacter = false
     case 15:
-      proxy.insertText(",")
+      dismissKeyboard()
     default:
       proxy.insertText(" ")
+      isEditingLastCharacter = false
     }
   }
+
+  func composableInput(first: String, second: String, third: String? = nil) {
+    let proxy = textDocumentProxy
+    if isEditingLastCharacter {
+      if let lastCharacter = proxy.documentContextBeforeInput?.last {
+        if lastCharacter == first.first {
+          proxy.deleteBackward()
+          proxy.insertText(second)
+        } else if lastCharacter == second.first {
+          proxy.deleteBackward()
+          proxy.insertText(third ?? first)
+        } else if third != nil, lastCharacter == third?.first {
+          proxy.deleteBackward()
+          proxy.insertText(first)
+        }
+      }
+      return
+    }
+    proxy.insertText(first)
+    isEditingLastCharacter = true
+  }
+
+  func ㅇㅁ() {
+    composableInput(first: "ㅇ", second: "ㅁ")
+  }
+
+  func ㄱㅋ() {
+    composableInput(first: "ㄱ", second: "ㅋ", third: "ㄲ")
+  }
+
+  func ㄴㄹ() {
+    composableInput(first: "ㄴ", second: "ㄹ")
+  }
+
+  func ㄷㅌ() {
+    composableInput(first: "ㄷ", second: "ㅌ", third: "ㄸ")
+  }
+
+  func ㅂㅍ() {
+    composableInput(first: "ㅂ", second: "ㅍ", third: "ㅃ")
+  }
+
+  func ㅅㅎ() {
+    composableInput(first: "ㅅ", second: "ㅎ", third: "ㅆ")
+  }
+
+  func ㅈㅊ() {
+    composableInput(first: "ㅈ", second: "ㅊ", third: "ㅉ")
+  }
+
+  func quickSpecialCharacters() {
+    composableInput(first: ".", second: "?", third: "!")
+  }
+
+  func 천() {
+    let map = [
+      "ㄱ": "ᄀᆞ",
+      "ㅋ": "ᄏᆞ",
+      "ㄲ": "ᄁᆞ",
+      "ㄴ": "ᄂᆞ",
+      "ㄹ": "ᄅᆞ",
+      "ㄷ": "ᄃᆞ",
+      "ㅌ": "ᄐᆞ",
+      "ㄸ": "ᄄᆞ",
+      "ㅂ": "ᄇᆞ",
+      "ㅍ": "ᄑᆞ",
+      "ㅃ": "ᄈᆞ",
+      "ㅅ": "ᄉᆞ",
+      "ㅎ": "ᄒᆞ",
+      "ㅆ": "ᄊᆞ",
+      "ㅈ": "ᄌᆞ",
+      "ㅊ": "ᄎᆞ",
+      "ㅉ": "ᄍᆞ",
+      "ㅇ": "ᄋᆞ",
+      "ㅁ": "ᄆᆞ",
+    ]
+
+    let proxy = textDocumentProxy
+    if isEditingLastCharacter {
+      if let lastCharacter = proxy.documentContextBeforeInput?.last {
+        if map.keys.contains(String(lastCharacter)) {
+          proxy.deleteBackward()
+          proxy.insertText(map[String(lastCharacter)]!)
+        }
+      }
+      return
+    }
+  }
+
+  func 지() {}
+
+  func 인() {}
 }
