@@ -53,7 +53,7 @@ struct KeyboardView: View {
         KeyboardButton(text: "ㅈㅊ", action: {
           buttonAction(10)
         })
-        KeyboardButton(text: ".,?!", action: {
+        KeyboardButton(text: ".?!", action: {
           buttonAction(11)
         })
       }
