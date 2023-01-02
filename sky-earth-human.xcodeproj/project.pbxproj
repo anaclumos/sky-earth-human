@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		501DB47F2963252C001C4A24 /* 한글.json in Resources */ = {isa = PBXBuildFile; fileRef = 501DB47E2963252C001C4A24 /* 한글.json */; };
+		501DB482296336FD001C4A24 /* NextKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB481296336FD001C4A24 /* NextKeyboard.swift */; };
+		501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
 		503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF16329517BD50019A76B /* KeyboardButton.swift */; };
 		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
@@ -63,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		501DB47E2963252C001C4A24 /* 한글.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "한글.json"; sourceTree = "<group>"; };
+		501DB481296336FD001C4A24 /* NextKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyboard.swift; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,9 +143,9 @@
 		50AFDDA829501257001BF44D /* sky-earth-human */ = {
 			isa = PBXGroup;
 			children = (
+				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
 				50AFDDAB29501257001BF44D /* ContentView.swift */,
-				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDB229501258001BF44D /* Persistence.swift */,
 				50AFDDB729501258001BF44D /* Info.plist */,
 				50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */,
@@ -183,6 +186,7 @@
 				503DF16329517BD50019A76B /* KeyboardButton.swift */,
 				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
 				503DF161295179970019A76B /* KeyboardView.swift */,
+				501DB481296336FD001C4A24 /* NextKeyboard.swift */,
 				50AFDDE1295012A5001BF44D /* Info.plist */,
 			);
 			path = keyboard;
@@ -338,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */,
 				501DB47F2963252C001C4A24 /* 한글.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */,
+				501DB482296336FD001C4A24 /* NextKeyboard.swift in Sources */,
 				50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */,
 				503DF162295179970019A76B /* KeyboardView.swift in Sources */,
 			);
@@ -661,6 +667,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = QKPXP9788L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = keyboard/Info.plist;
@@ -686,6 +693,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = QKPXP9788L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = keyboard/Info.plist;

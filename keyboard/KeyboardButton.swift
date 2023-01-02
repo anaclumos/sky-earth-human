@@ -10,26 +10,28 @@ import SwiftUI
 struct KeyboardButton: View {
   @Environment(\.colorScheme) var colorScheme
   var text: String?
-  var image: String?
+  var systemName: String?
+  let primary: Bool
   var action: () -> Void
   var body: some View {
     Button(action: action) {
-      if image != nil {
-        Image(systemName: image!)
-          .frame(maxWidth: .infinity, minHeight: 70, alignment: .center)
+      if systemName != nil {
+        Image(systemName: systemName!)
+          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
-            colorScheme == .dark ? Color(uiColor: UIColor.secondarySystemFill) : Color(uiColor: UIColor.systemGray6)
+            primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
           )
           .cornerRadius(5)
       } else if text != nil {
         Text(text!)
-          .frame(maxWidth: .infinity, minHeight: 70, alignment: .center)
+          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
+
           .background(
-            colorScheme == .dark ? Color(uiColor: UIColor.secondarySystemFill) : Color(uiColor: UIColor.systemGray6)
+            primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
           )
           .kerning(2)
           .cornerRadius(5)

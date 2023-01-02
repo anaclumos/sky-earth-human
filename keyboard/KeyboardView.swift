@@ -8,79 +8,86 @@
 import SwiftUI
 
 struct KeyboardView: View {
-  @Environment(\.colorScheme) var colorScheme
-  var buttonAction: (Int) -> Void
-  var ㅇㅁ: () -> Void
+  let colorScheme: ColorScheme
+  let needsInputModeSwitchKey: Bool
+  let nextKeyboardAction: Selector
+  let hangulAction: (String, String) -> Void
+  let textAction: (String, String, String?) -> Void
+  let nextKeyboardButton = UIButton(type: .system)
+  let proxy: UITextDocumentProxy
+  let dismissKeyboard: () -> Void
+  let deleteAction: () -> Void
+  let spaceAction: () -> Void
 
   var body: some View {
     VStack {
       HStack {
-        KeyboardButton(text: "ㅣ", action: {
-          buttonAction(0)
+        KeyboardButton(text: "ㅣ", primary: true, action: {
+          hangulAction("인", "ㅣ")
         })
-        KeyboardButton(text: "·", action: {
-          buttonAction(1)
+        KeyboardButton(text: "·", primary: true, action: {
+          hangulAction("천", "ᆞ")
         })
-        KeyboardButton(text: "ㅡ", action: {
-          buttonAction(2)
-
+        KeyboardButton(text: "ㅡ", primary: true, action: {
+          hangulAction("지", "ㅡ")
         })
-        KeyboardButton(image: "delete.left.fill", action: {
-          buttonAction(3)
-        })
-      }
-      HStack {
-        KeyboardButton(text: "ㄱㅋ", action: {
-          buttonAction(4)
-        })
-        KeyboardButton(text: "ㄴㄹ", action: {
-          buttonAction(5)
-        })
-        KeyboardButton(text: "ㄷㅌ", action: {
-          buttonAction(6)
-        })
-        KeyboardButton(image: "return", action: {
-          buttonAction(7)
+        KeyboardButton(systemName: "delete.left.fill", primary: false, action: {
+          deleteAction()
         })
       }
       HStack {
-        KeyboardButton(text: "ㅂㅍ", action: {
-          buttonAction(8)
+        KeyboardButton(text: "ㄱㅋ", primary: true, action: {
+          hangulAction("ㄱㅋ", "ㄱ")
         })
-        KeyboardButton(text: "ㅅㅎ", action: {
-          buttonAction(9)
+        KeyboardButton(text: "ㄴㄹ", primary: true, action: {
+          hangulAction("ㄴㄹ", "ㄴ")
         })
-        KeyboardButton(text: "ㅈㅊ", action: {
-          buttonAction(10)
+        KeyboardButton(text: "ㄷㅌ", primary: true, action: {
+          hangulAction("ㄷㅌ", "ㄷ")
         })
-        KeyboardButton(text: ".?!", action: {
-          buttonAction(11)
+        KeyboardButton(systemName: "return", primary: false, action: {
+          proxy.insertText("\n")
+        })
+      }
+      HStack {
+        KeyboardButton(text: "ㅂㅍ", primary: true, action: {
+          hangulAction("ㅂㅍ", "ㅂ")
+        })
+        KeyboardButton(text: "ㅅㅎ", primary: true, action: {
+          hangulAction("ㅅㅎ", "ㅅ")
+        })
+        KeyboardButton(text: "ㅈㅊ", primary: true, action: {
+          hangulAction("ㅈㅊ", "ㅈ")
+        })
+        KeyboardButton(text: ".?!", primary: false, action: {
+          textAction(".", "?", "!")
         })
       }
       HStack {
         HStack {
-          KeyboardButton(text: "!#1", action: {
-            buttonAction(12)
+          KeyboardButton(text: "!#1", primary: false, action: {
+            // do nothing
           })
-          KeyboardButton(image: "globe", action: {
-            // change keyboard
-          })
+          if needsInputModeSwitchKey {
+            NextKeyboardButton(systemName: "globe",
+                               action: nextKeyboardAction,
+                               primary: false)
+          }
         }
-
-        KeyboardButton(text: "ㅇㅁ", action: {
-          ㅇㅁ()
+        KeyboardButton(text: "ㅇㅁ", primary: true, action: {
+          hangulAction("ㅇㅁ", "ㅇ")
         })
-        KeyboardButton(image: "space", action: {
-          buttonAction(14)
+        KeyboardButton(systemName: "space", primary: false, action: {
+          spaceAction()
         })
-        KeyboardButton(image: "keyboard.chevron.compact.down.fill", action: {
-          buttonAction(15)
+        KeyboardButton(systemName: "keyboard.chevron.compact.down.fill", primary: false, action: {
+          dismissKeyboard()
         })
       }
     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
       .padding(10)
       .background(
-        colorScheme == .dark ? Color(uiColor: UIColor.tertiarySystemBackground) : Color(red: 208 / 256, green: 212 / 256, blue: 216 / 256)
+        Color("KeyboardBackground")
       )
   }
 }
