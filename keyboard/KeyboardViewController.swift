@@ -12,14 +12,29 @@ class KeyboardViewController: UIInputViewController {
   @IBOutlet var nextKeyboardButton: UIButton!
   @IBOutlet var helloButton: UIButton!
 
+  var 한글: [String: [String: String]] = [:]
   var isEditingLastCharacter = false
-
   override func updateViewConstraints() {
     super.updateViewConstraints()
   }
 
+  func loadJson() {
+    if let path = Bundle.main.path(forResource: "한글", ofType: "json") {
+      do {
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+        if let jsonResult = jsonResult as? [String: Any], let 데이터 = jsonResult as? [String: [String: String]] {
+          한글 = 데이터
+        }
+      } catch {
+        print("error")
+      }
+    }
+  }
+
   override func viewDidLoad() {
-    super.viewDidLoad() 
+    super.viewDidLoad()
+    loadJson()
     nextKeyboardButton = UIButton(type: .system)
     nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
     nextKeyboardButton.sizeToFit()
@@ -92,7 +107,11 @@ class KeyboardViewController: UIInputViewController {
     case 13:
       ㅇㅁ()
     case 14:
-      isEditingLastCharacter = false
+      if !isEditingLastCharacter {
+        proxy.insertText(" ")
+      } else {
+        isEditingLastCharacter = false
+      }
     case 15:
       dismissKeyboard()
     default:
@@ -101,7 +120,10 @@ class KeyboardViewController: UIInputViewController {
     }
   }
 
-  func 입력(map: [String: String]) {
+  func 입력(map: [String: String]?) -> Bool {
+    guard let map = map else {
+      return false
+    }
     let proxy = textDocumentProxy
     if let lastThreeCharacters = proxy.documentContextBeforeInput?.suffix(3) {
       if map.keys.contains(String(lastThreeCharacters)) {
@@ -109,7 +131,7 @@ class KeyboardViewController: UIInputViewController {
         proxy.deleteBackward()
         proxy.deleteBackward()
         proxy.insertText(map[String(lastThreeCharacters)]!)
-        return
+        return true
       }
     }
 
@@ -118,7 +140,7 @@ class KeyboardViewController: UIInputViewController {
         proxy.deleteBackward()
         proxy.deleteBackward()
         proxy.insertText(map[String(lastTwoCharacters)]!)
-        return
+        return true
       }
     }
 
@@ -126,37 +148,67 @@ class KeyboardViewController: UIInputViewController {
       if map.keys.contains(String(lastCharacter)) {
         proxy.deleteBackward()
         proxy.insertText(map[String(lastCharacter)]!)
-        return
+        return true
       }
     }
+
+    return false
   }
 
   func ㅇㅁ() {
-    입력(map: 한글.ㅇㅁ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㅇㅁ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅇ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㄱㅋ() {
-    입력(map: 한글.ㄱㅋ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㄱㅋ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㄱ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㄴㄹ() {
-    입력(map: 한글.ㄴㄹ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㄴㄹ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㄴ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㄷㅌ() {
-    입력(map: 한글.ㄷㅌ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㄷㅌ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㄷ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㅂㅍ() {
-    입력(map: 한글.ㅂㅍ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㅂㅍ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅂ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㅅㅎ() {
-    입력(map: 한글.ㅅㅎ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㅅㅎ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅅ")
+      isEditingLastCharacter = true
+    }
   }
 
   func ㅈㅊ() {
-    입력(map: 한글.ㅈㅊ)
+    if !isEditingLastCharacter || !입력(map: 한글["ㅈㅊ"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅈ")
+      isEditingLastCharacter = true
+    }
   }
 
   func quickSpecialCharacters() {
@@ -185,14 +237,26 @@ class KeyboardViewController: UIInputViewController {
   }
 
   func 천() {
-    입력(map: 한글.천)
+    if !isEditingLastCharacter || !입력(map: 한글["천"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ᆞ")
+      isEditingLastCharacter = true
+    }
   }
 
   func 지() {
-    입력(map: 한글.지)
+    if !isEditingLastCharacter || !입력(map: 한글["지"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅡ")
+      isEditingLastCharacter = true
+    }
   }
 
   func 인() {
-    입력(map: 한글.인)
+    if !isEditingLastCharacter || !입력(map: 한글["인"]) {
+      let proxy = textDocumentProxy
+      proxy.insertText("ㅣ")
+      isEditingLastCharacter = true
+    }
   }
 }
