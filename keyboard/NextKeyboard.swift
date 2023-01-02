@@ -11,9 +11,14 @@ struct NextKeyboardButton: View {
     Image(systemName: systemName)
       .overlay {
         NextKeyboardButtonOverlay(action: action)
-      }.background(
+      }
+      .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
+      .font(.system(size: 24))
+      .foregroundColor(Color(uiColor: UIColor.label))
+      .background(
         primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
       )
+      .cornerRadius(5)
   }
 }
 
