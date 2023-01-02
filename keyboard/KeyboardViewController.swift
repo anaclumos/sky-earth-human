@@ -18,23 +18,24 @@ class KeyboardViewController: UIInputViewController {
     super.updateViewConstraints()
   }
 
-  func loadJson() {
-    if let path = Bundle.main.path(forResource: "한글", ofType: "json") {
-      do {
-        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-        if let jsonResult = jsonResult as? [String: Any], let 데이터 = jsonResult as? [String: [String: String]] {
-          한글 = 데이터
+  func loadJsonAsync() {
+    DispatchQueue.global(qos: .background).async {
+      if let path = Bundle.main.path(forResource: "한글", ofType: "json") {
+        do {
+          let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+          let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+          if let jsonResult = jsonResult as? [String: Any], let 데이터 = jsonResult as? [String: [String: String]] {
+            self.한글 = 데이터
+          }
+        } catch {
+          print("error")
         }
-      } catch {
-        print("error")
       }
     }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    loadJson()
     nextKeyboardButton = UIButton(type: .system)
     nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
     nextKeyboardButton.sizeToFit()
@@ -50,6 +51,8 @@ class KeyboardViewController: UIInputViewController {
     keyboardView.view.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     keyboardView.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     addChild(keyboardView)
+    keyboardView.didMove(toParent: self)
+    loadJsonAsync()
   }
 
   override func viewWillLayoutSubviews() {
