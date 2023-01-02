@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5008FFB02962C43C006C34B7 /* 한글.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008FFAE2962C0CC006C34B7 /* 한글.swift */; };
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
 		503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF16329517BD50019A76B /* KeyboardButton.swift */; };
 		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5008FFAE2962C0CC006C34B7 /* 한글.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "한글.swift"; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 		50AFDDDE295012A5001BF44D /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				5008FFAE2962C0CC006C34B7 /* 한글.swift */,
 				503DF16329517BD50019A76B /* KeyboardButton.swift */,
 				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
 				503DF161295179970019A76B /* KeyboardView.swift */,
@@ -376,6 +379,7 @@
 				503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */,
 				50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */,
 				503DF162295179970019A76B /* KeyboardView.swift in Sources */,
+				5008FFB02962C43C006C34B7 /* 한글.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
