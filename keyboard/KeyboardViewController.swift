@@ -15,9 +15,9 @@ class KeyboardViewController: UIInputViewController {
   var supportsHaptics: Bool = false
   var proxyBackup: String = ""
   var proxyHistory: [String] = []
-
   var 한글: [String: [String: String]] = [:]
   var isEditingLastCharacter = false
+  @ObservedObject var autocomplete = TopAutocomplete()
   override func updateViewConstraints() {
     super.updateViewConstraints()
   }
@@ -57,8 +57,11 @@ class KeyboardViewController: UIInputViewController {
       proxy: textDocumentProxy,
       dismissKeyboard: dismissKeyboard,
       deleteAction: deleteAction,
-      spaceAction: spaceAction
+      spaceAction: spaceAction,
+      autocomplete: autocomplete,
+      autocompleteAction: autocompleteAction
     ))
+    autocomplete.list = ["", "", ""]
     view.addSubview(keyboardView.view)
     keyboardView.view.invalidateIntrinsicContentSize()
     keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +69,7 @@ class KeyboardViewController: UIInputViewController {
     keyboardView.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     addChild(keyboardView)
     keyboardView.didMove(toParent: self)
+    updateAutocomplete()
   }
 
   func 입력(key: String, fallback: String) {
@@ -79,6 +83,7 @@ class KeyboardViewController: UIInputViewController {
       proxyBackup = fallback
       proxyHistory.append(fallback)
       isEditingLastCharacter = true
+      updateAutocomplete()
       return
     }
     if proxyBackup.count > 2 {
@@ -91,6 +96,7 @@ class KeyboardViewController: UIInputViewController {
         proxy.insertText(next)
         proxyBackup = next
         proxyHistory.append(next)
+        updateAutocomplete()
         return
       }
     }
@@ -103,6 +109,7 @@ class KeyboardViewController: UIInputViewController {
         proxy.insertText(next)
         proxyBackup = next
         proxyHistory.append(next)
+        updateAutocomplete()
         return
       }
     }
@@ -114,18 +121,19 @@ class KeyboardViewController: UIInputViewController {
         proxy.insertText(next)
         proxyBackup = next
         proxyHistory.append(next)
+        updateAutocomplete()
         return
       }
     }
     proxy.insertText(fallback)
     isEditingLastCharacter = true
     proxyBackup = fallback
-    proxyHistory.append(fallback)
+    proxyHistory = [fallback]
+    updateAutocomplete()
   }
 
   func composableInput(first: String, second: String, third: String? = nil) {
     let proxy = textDocumentProxy
-
     if isEditingLastCharacter {
       if let lastCharacter = proxy.documentContextBeforeInput?.last {
         if lastCharacter == first.first {
@@ -133,18 +141,21 @@ class KeyboardViewController: UIInputViewController {
           proxy.insertText(second)
           proxyBackup = second
           proxyHistory = []
+          updateAutocomplete()
           return
         } else if lastCharacter == second.first {
           proxy.deleteBackward()
           proxy.insertText(third ?? first)
           proxyBackup = third ?? first
           proxyHistory = []
+          updateAutocomplete()
           return
         } else if third != nil, lastCharacter == third?.first {
           proxy.deleteBackward()
           proxy.insertText(first)
           proxyBackup = first
           proxyHistory = []
+          updateAutocomplete()
           return
         }
       }
@@ -153,25 +164,27 @@ class KeyboardViewController: UIInputViewController {
     isEditingLastCharacter = true
     proxyBackup = first
     proxyHistory = []
+    updateAutocomplete()
   }
 
   func deleteAction() {
-    print(proxyHistory)
     if proxyHistory.count > 1 {
-      print("case 1")
       let proxy = textDocumentProxy
-      proxy.deleteBackward()
       proxyHistory.removeLast()
+      for _ in 0 ..< (proxyHistory.last?.count ?? 0) {
+        proxy.deleteBackward()
+      }
       proxy.insertText(proxyHistory.removeLast())
       proxyBackup = proxyHistory.last ?? ""
+      updateAutocomplete()
       return
     }
-    print("case 2")
     isEditingLastCharacter = false
     let proxy = textDocumentProxy
     proxy.deleteBackward()
     proxyBackup = ""
     proxyHistory = []
+    updateAutocomplete()
   }
 
   func spaceAction() {
@@ -182,5 +195,26 @@ class KeyboardViewController: UIInputViewController {
       proxyBackup = ""
       proxyHistory = []
     }
+    updateAutocomplete()
+  }
+
+  func autocompleteAction(completion: String) {
+    let proxy = textDocumentProxy
+    while let lastCharacter = proxy.documentContextBeforeInput?.last, lastCharacter != " " {
+      proxy.deleteBackward()
+    }
+    proxy.insertText(completion)
+    proxyBackup = completion
+    proxyHistory = []
+  }
+
+  func updateAutocomplete() {
+    let uiTextChecker = UITextChecker()
+    let proxy = textDocumentProxy
+    let allString = proxy.documentContextBeforeInput ?? ""
+    var lastWord = allString.components(separatedBy: " ").last ?? ""
+    let range = NSRange(location: 0, length: lastWord.count)
+    let guesses = uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
+    autocomplete.list = guesses
   }
 }

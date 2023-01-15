@@ -8,6 +8,10 @@
 import CoreHaptics
 import SwiftUI
 
+class TopAutocomplete: ObservableObject {
+  @Published var list: [String] = []
+}
+
 struct KeyboardView: View {
   let colorScheme: ColorScheme
   let needsInputModeSwitchKey: Bool
@@ -19,9 +23,30 @@ struct KeyboardView: View {
   let dismissKeyboard: () -> Void
   let deleteAction: () -> Void
   let spaceAction: () -> Void
+  @ObservedObject var autocomplete: TopAutocomplete
+  let autocompleteAction: (String) -> Void
 
   var body: some View {
     VStack {
+      HStack {
+        AutocompleteButton(text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "", action: {
+          if autocomplete.list.count >= 1 {
+            autocompleteAction(autocomplete.list[0])
+          }
+        })
+        Divider()
+        AutocompleteButton(text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "", action: {
+          if autocomplete.list.count >= 2 {
+            autocompleteAction(autocomplete.list[1])
+          }
+        })
+        Divider()
+        AutocompleteButton(text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "", action: {
+          if autocomplete.list.count >= 3 {
+            autocompleteAction(autocomplete.list[2])
+          }
+        })
+      }
       HStack {
         KeyboardButton(text: "ㅣ", primary: true, action: {
           hangulAction("인", "ㅣ")
