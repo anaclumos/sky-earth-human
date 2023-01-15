@@ -81,7 +81,7 @@ class KeyboardViewController: UIInputViewController {
       let proxy = textDocumentProxy
       proxy.insertText(fallback)
       proxyBackup = fallback
-      proxyHistory.append(fallback)
+      proxyHistory = [fallback]
       isEditingLastCharacter = true
       updateAutocomplete()
       return
@@ -95,7 +95,7 @@ class KeyboardViewController: UIInputViewController {
         let next = map[String(lastThreeCharacters)]!
         proxy.insertText(next)
         proxyBackup = next
-        proxyHistory.append(next)
+        proxyHistory = [next]
         updateAutocomplete()
         return
       }
@@ -108,7 +108,7 @@ class KeyboardViewController: UIInputViewController {
         let next = map[String(lastTwoCharacters)]!
         proxy.insertText(next)
         proxyBackup = next
-        proxyHistory.append(next)
+        proxyHistory = [next]
         updateAutocomplete()
         return
       }
@@ -120,7 +120,12 @@ class KeyboardViewController: UIInputViewController {
         let next = map[String(lastCharacter)]!
         proxy.insertText(next)
         proxyBackup = next
-        proxyHistory.append(next)
+        if String(lastCharacter).count != next.count {
+          let lastCharacter = next.suffix(1)
+          proxyHistory = [String(lastCharacter)]
+        } else {
+          proxyHistory.append(next)
+        }
         updateAutocomplete()
         return
       }
@@ -170,9 +175,13 @@ class KeyboardViewController: UIInputViewController {
   func deleteAction() {
     if proxyHistory.count > 1 {
       let proxy = textDocumentProxy
-      proxyHistory.removeLast()
       for _ in 0 ..< (proxyHistory.last?.count ?? 0) {
         proxy.deleteBackward()
+      }
+
+      if isEditingLastCharacter {
+        proxyHistory.removeLast()
+        isEditingLastCharacter = false
       }
       proxy.insertText(proxyHistory.removeLast())
       proxyBackup = proxyHistory.last ?? ""
@@ -212,7 +221,7 @@ class KeyboardViewController: UIInputViewController {
     let uiTextChecker = UITextChecker()
     let proxy = textDocumentProxy
     let allString = proxy.documentContextBeforeInput ?? ""
-    var lastWord = allString.components(separatedBy: " ").last ?? ""
+    let lastWord = allString.components(separatedBy: " ").last ?? ""
     let range = NSRange(location: 0, length: lastWord.count)
     let guesses = uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
     autocomplete.list = guesses
