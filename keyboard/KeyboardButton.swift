@@ -5,6 +5,7 @@
 //  Created by Sunghyun Cho on 12/20/22.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct KeyboardButton: View {
@@ -14,7 +15,9 @@ struct KeyboardButton: View {
   let primary: Bool
   var action: () -> Void
   var body: some View {
-    Button(action: action) {
+    Button(action: {
+      action()
+    }) {
       if systemName != nil {
         Image(systemName: systemName!)
           .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
@@ -29,7 +32,6 @@ struct KeyboardButton: View {
           .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
           .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
-
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
           )

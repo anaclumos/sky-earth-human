@@ -5,6 +5,7 @@
 //  Created by Sunghyun Cho on 12/20/22.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct KeyboardView: View {

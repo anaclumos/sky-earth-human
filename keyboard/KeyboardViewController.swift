@@ -12,6 +12,8 @@ class KeyboardViewController: UIInputViewController {
   @IBOutlet var nextKeyboardButton: UIButton!
   @IBOutlet var helloButton: UIButton!
 
+  var supportsHaptics: Bool = false
+
   var 한글: [String: [String: String]] = [:]
   var isEditingLastCharacter = false
   override func updateViewConstraints() {

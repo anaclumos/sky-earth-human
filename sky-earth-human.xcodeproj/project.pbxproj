@@ -67,7 +67,7 @@
 		501DB47E2963252C001C4A24 /* 한글.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "한글.json"; sourceTree = "<group>"; };
 		501DB481296336FD001C4A24 /* NextKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyboard.swift; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
-		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
+		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; tabWidth = 2; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanApp.swift; sourceTree = "<group>"; };
 		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,7 +127,9 @@
 				50AFDDDE295012A5001BF44D /* keyboard */,
 				50AFDDA729501257001BF44D /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		50AFDDA729501257001BF44D /* Products */ = {
 			isa = PBXGroup;
@@ -530,6 +532,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "sky-earth-human/sky-earth-human.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sky-earth-human/Preview Content\"";
@@ -561,6 +564,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "sky-earth-human/sky-earth-human.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sky-earth-human/Preview Content\"";
@@ -665,6 +669,7 @@
 		50AFDDE6295012A5001BF44D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = keyboard/keyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -691,6 +696,7 @@
 		50AFDDE7295012A5001BF44D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = keyboard/keyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
