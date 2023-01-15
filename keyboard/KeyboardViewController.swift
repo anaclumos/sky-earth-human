@@ -13,6 +13,7 @@ class KeyboardViewController: UIInputViewController {
   @IBOutlet var helloButton: UIButton!
 
   var supportsHaptics: Bool = false
+  var proxyBackup: String = ""
 
   var 한글: [String: [String: String]] = [:]
   var isEditingLastCharacter = false
@@ -74,35 +75,43 @@ class KeyboardViewController: UIInputViewController {
     if !isEditingLastCharacter {
       let proxy = textDocumentProxy
       proxy.insertText(fallback)
+      proxyBackup = fallback
       isEditingLastCharacter = true
       return
     }
-    if let lastThreeCharacters = proxy.documentContextBeforeInput?.suffix(3) {
+    if proxyBackup.count > 2 {
+      let lastThreeCharacters = proxyBackup.suffix(3)
       if map.keys.contains(String(lastThreeCharacters)) {
         proxy.deleteBackward()
         proxy.deleteBackward()
         proxy.deleteBackward()
         proxy.insertText(map[String(lastThreeCharacters)]!)
+        proxyBackup = map[String(lastThreeCharacters)]!
         return
       }
     }
-    if let lastTwoCharacters = proxy.documentContextBeforeInput?.suffix(2) {
+    if proxyBackup.count > 1 {
+      let lastTwoCharacters = proxyBackup.suffix(2)
       if map.keys.contains(String(lastTwoCharacters)) {
         proxy.deleteBackward()
         proxy.deleteBackward()
         proxy.insertText(map[String(lastTwoCharacters)]!)
+        proxyBackup = map[String(lastTwoCharacters)]!
         return
       }
     }
-    if let lastCharacter = proxy.documentContextBeforeInput?.last {
+    if proxyBackup.count > 0 {
+      let lastCharacter = proxyBackup.suffix(1)
       if map.keys.contains(String(lastCharacter)) {
         proxy.deleteBackward()
         proxy.insertText(map[String(lastCharacter)]!)
+        proxyBackup = map[String(lastCharacter)]!
         return
       }
     }
     proxy.insertText(fallback)
     isEditingLastCharacter = true
+    proxyBackup = fallback
   }
 
   func composableInput(first: String, second: String, third: String? = nil) {
@@ -113,26 +122,31 @@ class KeyboardViewController: UIInputViewController {
         if lastCharacter == first.first {
           proxy.deleteBackward()
           proxy.insertText(second)
+          proxyBackup = second
           return
         } else if lastCharacter == second.first {
           proxy.deleteBackward()
           proxy.insertText(third ?? first)
+          proxyBackup = third ?? first
           return
         } else if third != nil, lastCharacter == third?.first {
           proxy.deleteBackward()
           proxy.insertText(first)
+          proxyBackup = first
           return
         }
       }
     }
     proxy.insertText(first)
     isEditingLastCharacter = true
+    proxyBackup = first
   }
 
   func deleteAction() {
     let proxy = textDocumentProxy
     proxy.deleteBackward()
     isEditingLastCharacter = false
+    proxyBackup = ""
   }
 
   func spaceAction() {
@@ -140,6 +154,7 @@ class KeyboardViewController: UIInputViewController {
       textDocumentProxy.insertText(" ")
     } else {
       isEditingLastCharacter = false
+      proxyBackup = ""
     }
   }
 }
