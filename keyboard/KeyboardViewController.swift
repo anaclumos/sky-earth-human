@@ -87,9 +87,7 @@ class KeyboardViewController: UIInputViewController {
 
     let proxy = textDocumentProxy
 
-    if proxy.documentContextBeforeInput != nil &&
-      !proxy.documentContextBeforeInput!.contains(proxyBackup)
-    {
+    if proxy.documentContextBeforeInput != nil && !proxy.documentContextBeforeInput!.contains(proxyBackup) {
       proxyBackup = ""
       proxyHistory = []
     }
@@ -202,13 +200,12 @@ class KeyboardViewController: UIInputViewController {
       for _ in 0 ..< (proxyHistory.last?.count ?? 0) {
         proxy.deleteBackward()
       }
-
       if isEditingLastCharacter {
         proxyHistory.removeLast()
-        isEditingLastCharacter = false
       }
-      proxy.insertText(proxyHistory.removeLast())
-      proxyBackup = proxyHistory.last ?? ""
+      let last = proxyHistory.last ?? ""
+      proxy.insertText(last)
+      proxyBackup = last
       updateAutocomplete()
       return
     }
