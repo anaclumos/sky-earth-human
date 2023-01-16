@@ -81,11 +81,20 @@ class KeyboardViewController: UIInputViewController {
 
   func 입력(key: String, fallback: String) {
     guard let map = 한글[key] else {
+      simpleInput(fallback)
       return
     }
+
     let proxy = textDocumentProxy
+
+    if proxy.documentContextBeforeInput != nil &&
+      !proxy.documentContextBeforeInput!.contains(proxyBackup)
+    {
+      proxyBackup = ""
+      proxyHistory = []
+    }
+
     if !isEditingLastCharacter {
-      let proxy = textDocumentProxy
       proxy.insertText(fallback)
       proxyBackup = fallback
       proxyHistory = [fallback]

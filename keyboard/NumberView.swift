@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NumberView: View {
   @EnvironmentObject var options: KeyboardOptions
-
+  @State var timer: AnyCancellable?
   var body: some View {
     VStack {
       HStack {

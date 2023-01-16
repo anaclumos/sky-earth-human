@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SymbolView: View {
   @EnvironmentObject var options: KeyboardOptions
@@ -17,6 +18,7 @@ struct SymbolView: View {
   ]
 
   @State var page = 0
+  @State var timer: AnyCancellable?
 
   var body: some View {
     VStack {
