@@ -9,15 +9,17 @@ import CoreHaptics
 import SwiftUI
 
 struct KeyboardButton: View {
+  @State var pressing = false
+
   @Environment(\.colorScheme) var colorScheme
   var text: String?
   var systemName: String?
   let primary: Bool
   var action: () -> Void
+  var onLongPress: (() -> Void)?
+  var onLongPressFinished: (() -> Void)?
   var body: some View {
-    Button(action: {
-      action()
-    }) {
+    Button(action: {}) {
       if systemName != nil {
         Image(systemName: systemName!)
           .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
@@ -47,5 +49,21 @@ struct KeyboardButton: View {
       alignment: .topLeading
     )
     .font(.system(size: 32))
+    .simultaneousGesture(
+      DragGesture(minimumDistance: 0)
+        .onChanged { _ in
+          pressing = true
+          onLongPress?()
+        }
+        .onEnded { _ in
+          pressing = false
+          onLongPressFinished?()
+        }
+    )
+    .highPriorityGesture(TapGesture()
+      .onEnded { _ in
+        action()
+      }
+    )
   }
 }

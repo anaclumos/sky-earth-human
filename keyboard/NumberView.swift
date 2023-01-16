@@ -24,6 +24,16 @@ struct NumberView: View {
         })
         KeyboardButton(systemName: "delete.left.fill", primary: false, action: {
           options.deleteAction()
+        },
+        onLongPress: {
+          timer = Timer.publish(every: 0.1, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+              options.deleteAction()
+            }
+        },
+        onLongPressFinished: {
+          timer?.cancel()
         })
       }
       HStack {
