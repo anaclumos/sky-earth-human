@@ -12,7 +12,7 @@ struct KeyboardView: View {
   @EnvironmentObject var autocomplete: TopAutocomplete
 
   var body: some View {
-    VStack {
+    VStack(spacing: 0) {
       HStack {
         AutocompleteButton(text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "", action: {
           if autocomplete.list.count >= 1 {
@@ -35,6 +35,8 @@ struct KeyboardView: View {
         .background(
           Color("KeyboardBackground")
         )
+        .padding(5)
+        .padding(.bottom, 0)
       if options.current == .hangul {
         HangulView()
       } else if options.current == .number {

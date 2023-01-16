@@ -113,8 +113,8 @@ struct SymbolView: View {
         }
       }
     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-      .padding(10)
-      .padding(.top, 0)
+      .padding(.leading, 10)
+      .padding(.trailing, 10)
       .background(
         Color("KeyboardBackground")
       )
