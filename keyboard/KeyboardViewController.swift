@@ -23,7 +23,7 @@ class KeyboardViewController: UIInputViewController {
 
   func loadJsonAsync() {
     DispatchQueue.global(qos: .background).async {
-      if let path = Bundle.main.path(forResource: "한글", ofType: "json") {
+      if let path = Bundle.main.path(forResource: "한글.min", ofType: "json") {
         do {
           let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
           let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
@@ -47,7 +47,6 @@ class KeyboardViewController: UIInputViewController {
       loadJsonAsync()
     }
     let nextKeyboardAction = #selector(handleInputModeList(from:with:))
-
     let options = KeyboardOptions(
       colorScheme: traitCollection.userInterfaceStyle == .dark ? .dark : .light,
       needsInputModeSwitchKey: needsInputModeSwitchKey,
@@ -62,9 +61,8 @@ class KeyboardViewController: UIInputViewController {
     )
 
     let autocomplete = TopAutocomplete(action: autocompleteAction)
-
-    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
     autocomplete.list = ["", "", ""]
+    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
 
     self.options = options
     self.autocomplete = autocomplete
@@ -87,7 +85,7 @@ class KeyboardViewController: UIInputViewController {
 
     let proxy = textDocumentProxy
 
-    if proxy.documentContextBeforeInput != nil && !proxy.documentContextBeforeInput!.contains(proxyBackup) {
+    if proxy.documentContextBeforeInput == nil || !(proxy.documentContextBeforeInput!.suffix(2)).contains(proxyBackup) {
       proxyBackup = ""
       proxyHistory = []
     }
