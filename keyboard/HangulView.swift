@@ -9,24 +9,26 @@ import SwiftUI
 
 struct HangulView: View {
   @EnvironmentObject var options: KeyboardOptions
+  @EnvironmentObject var autocomplete: TopAutocomplete
+
   var body: some View {
     VStack {
       HStack {
-        AutocompleteButton(text: options.autocomplete.list.count >= 1 ? options.autocomplete.list[0] : "", action: {
-          if options.autocomplete.list.count >= 1 {
-            options.autocompleteAction(options.autocomplete.list[0])
+        AutocompleteButton(text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "", action: {
+          if autocomplete.list.count >= 1 {
+            autocomplete.action(autocomplete.list[0])
           }
         })
         Divider()
-        AutocompleteButton(text: options.autocomplete.list.count >= 2 ? options.autocomplete.list[1] : "", action: {
-          if options.autocomplete.list.count >= 2 {
-            options.autocompleteAction(options.autocomplete.list[1])
+        AutocompleteButton(text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "", action: {
+          if autocomplete.list.count >= 2 {
+            autocomplete.action(autocomplete.list[1])
           }
         })
         Divider()
-        AutocompleteButton(text: options.autocomplete.list.count >= 3 ? options.autocomplete.list[2] : "", action: {
-          if options.autocomplete.list.count >= 3 {
-            options.autocompleteAction(options.autocomplete.list[2])
+        AutocompleteButton(text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "", action: {
+          if autocomplete.list.count >= 3 {
+            autocomplete.action(autocomplete.list[2])
           }
         })
       }

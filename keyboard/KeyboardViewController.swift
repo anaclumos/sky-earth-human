@@ -15,7 +15,8 @@ class KeyboardViewController: UIInputViewController {
   var proxyHistory: [String] = []
   var 한글: [String: [String: String]] = [:]
   var isEditingLastCharacter = false
-  @ObservedObject var autocomplete = TopAutocomplete()
+  var options: KeyboardOptions?
+  var autocomplete: TopAutocomplete?
   override func updateViewConstraints() {
     super.updateViewConstraints()
   }
@@ -57,13 +58,17 @@ class KeyboardViewController: UIInputViewController {
       dismissKeyboard: dismissKeyboard,
       deleteAction: deleteAction,
       spaceAction: spaceAction,
-      autocomplete: autocomplete,
-      autocompleteAction: autocompleteAction,
       simpleInput: simpleInput
     )
 
-    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options))
+    let autocomplete = TopAutocomplete(action: autocompleteAction)
+
+    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
     autocomplete.list = ["", "", ""]
+
+    self.options = options
+    self.autocomplete = autocomplete
+
     view.addSubview(keyboardView.view)
     keyboardView.view.invalidateIntrinsicContentSize()
     keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
@@ -234,6 +239,6 @@ class KeyboardViewController: UIInputViewController {
     let lastWord = allString.components(separatedBy: " ").last ?? ""
     let range = NSRange(location: 0, length: lastWord.count)
     let guesses = uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
-    autocomplete.list = guesses
+    autocomplete?.list = guesses
   }
 }
