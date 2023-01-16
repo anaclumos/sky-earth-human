@@ -22,7 +22,6 @@
 		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDB029501258001BF44D /* Preview Assets.xcassets */; };
-		50AFDDB329501258001BF44D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB229501258001BF44D /* Persistence.swift */; };
 		50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */; };
 		50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */; };
 		50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */; };
@@ -85,7 +84,6 @@
 		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50AFDDAD29501258001BF44D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AFDDB029501258001BF44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		50AFDDB229501258001BF44D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sky_earth_human.xcdatamodel; sourceTree = "<group>"; };
 		50AFDDB729501258001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,7 +158,6 @@
 				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
 				50AFDDAB29501257001BF44D /* ContentView.swift */,
-				50AFDDB229501258001BF44D /* Persistence.swift */,
 				50AFDDB729501258001BF44D /* Info.plist */,
 				50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */,
 				50AFDDAF29501258001BF44D /* Preview Content */,
@@ -315,10 +312,10 @@
 			};
 			buildConfigurationList = 50AFDDA129501256001BF44D /* Build configuration list for PBXProject "sky-earth-human" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 50AFDD9D29501256001BF44D;
@@ -374,7 +371,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AFDDB329501258001BF44D /* Persistence.swift in Sources */,
 				50AFDDAC29501257001BF44D /* ContentView.swift in Sources */,
 				50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */,
 				50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */,
