@@ -11,8 +11,6 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
   @IBOutlet var nextKeyboardButton: UIButton!
   @IBOutlet var helloButton: UIButton!
-
-  var supportsHaptics: Bool = false
   var proxyBackup: String = ""
   var proxyHistory: [String] = []
   var 한글: [String: [String: String]] = [:]
@@ -60,7 +58,8 @@ class KeyboardViewController: UIInputViewController {
       deleteAction: deleteAction,
       spaceAction: spaceAction,
       autocomplete: autocomplete,
-      autocompleteAction: autocompleteAction
+      autocompleteAction: autocompleteAction,
+      simpleInput: simpleInput
     )
 
     let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options))
@@ -140,18 +139,26 @@ class KeyboardViewController: UIInputViewController {
     updateAutocomplete()
   }
 
-  func composableInput(first: String, second: String, third: String? = nil) {
+  func simpleInput(_ input: String) {
+    let proxy = textDocumentProxy
+    proxy.insertText(input)
+    proxyBackup = input
+    proxyHistory = [input]
+    updateAutocomplete()
+  }
+
+  func composableInput(first: String, second: String? = nil, third: String? = nil) {
     let proxy = textDocumentProxy
     if isEditingLastCharacter {
       if let lastCharacter = proxy.documentContextBeforeInput?.last {
         if lastCharacter == first.first {
           proxy.deleteBackward()
-          proxy.insertText(second)
-          proxyBackup = second
+          proxy.insertText(second ?? first)
+          proxyBackup = second ?? first
           proxyHistory = []
           updateAutocomplete()
           return
-        } else if lastCharacter == second.first {
+        } else if lastCharacter == second?.first {
           proxy.deleteBackward()
           proxy.insertText(third ?? first)
           proxyBackup = third ?? first

@@ -27,8 +27,9 @@ class KeyboardOptions: ObservableObject {
   var spaceAction: () -> Void
   var autocompleteAction: (String) -> Void
   var autocomplete: TopAutocomplete
+  var simpleInput: (String) -> Void
 
-  init(colorScheme: ColorScheme, needsInputModeSwitchKey: Bool, nextKeyboardAction: Selector, hangulAction: @escaping (String, String) -> Void, textAction: @escaping (String, String, String?) -> Void, proxy: UITextDocumentProxy, dismissKeyboard: @escaping () -> Void, deleteAction: @escaping () -> Void, spaceAction: @escaping () -> Void, autocomplete: TopAutocomplete, autocompleteAction: @escaping (String) -> Void) {
+  init(colorScheme: ColorScheme, needsInputModeSwitchKey: Bool, nextKeyboardAction: Selector, hangulAction: @escaping (String, String) -> Void, textAction: @escaping (String, String, String?) -> Void, proxy: UITextDocumentProxy, dismissKeyboard: @escaping () -> Void, deleteAction: @escaping () -> Void, spaceAction: @escaping () -> Void, autocomplete: TopAutocomplete, autocompleteAction: @escaping (String) -> Void, simpleInput: @escaping (String) -> Void) {
     self.colorScheme = colorScheme
     self.needsInputModeSwitchKey = needsInputModeSwitchKey
     self.nextKeyboardAction = nextKeyboardAction
@@ -40,5 +41,6 @@ class KeyboardOptions: ObservableObject {
     self.spaceAction = spaceAction
     self.autocomplete = autocomplete
     self.autocompleteAction = autocompleteAction
+    self.simpleInput = simpleInput
   }
 }
