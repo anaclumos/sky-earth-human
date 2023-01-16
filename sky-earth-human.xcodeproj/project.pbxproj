@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		501DB47F2963252C001C4A24 /* 한글.json in Resources */ = {isa = PBXBuildFile; fileRef = 501DB47E2963252C001C4A24 /* 한글.json */; };
+		501DB47F2963252C001C4A24 /* 한글.min.json in Resources */ = {isa = PBXBuildFile; fileRef = 501DB47E2963252C001C4A24 /* 한글.min.json */; };
 		501DB482296336FD001C4A24 /* NextKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB481296336FD001C4A24 /* NextKeyboard.swift */; };
 		501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
@@ -69,7 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		501DB47E2963252C001C4A24 /* 한글.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "한글.json"; sourceTree = "<group>"; };
+		501DB47E2963252C001C4A24 /* 한글.min.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "한글.min.json"; sourceTree = "<group>"; };
 		501DB481296336FD001C4A24 /* NextKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyboard.swift; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -193,7 +193,7 @@
 		50AFDDDE295012A5001BF44D /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				501DB47E2963252C001C4A24 /* 한글.json */,
+				501DB47E2963252C001C4A24 /* 한글.min.json */,
 				503DF16329517BD50019A76B /* KeyboardButton.swift */,
 				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
 				509749E82974CEA200779F75 /* TopAutocomplete.swift */,
@@ -360,7 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */,
-				501DB47F2963252C001C4A24 /* 한글.json in Resources */,
+				501DB47F2963252C001C4A24 /* 한글.min.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
