@@ -15,15 +15,28 @@ struct AutocompleteButton: View {
     Button(action: action,
            label: {
              Text(text ?? "")
-               .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
+               .frame(
+                 idealWidth: .infinity,
+                 maxWidth: .infinity,
+                 minHeight: 0,
+                 idealHeight: 40,
+                 alignment: .center
+               )
                .foregroundColor(Color(uiColor: UIColor.label))
            }).frame(
       minWidth: 0,
+      idealWidth: .infinity,
       maxWidth: .infinity,
       minHeight: 0,
+      idealHeight: 40,
+      alignment: .center
+    ).frame(
+      minWidth: 0,
+      idealWidth: .infinity,
+      maxWidth: .infinity,
+      idealHeight: 40,
       maxHeight: .infinity,
-      alignment: .topLeading
+      alignment: .center
     )
-    .font(.system(size: 16))
   }
 }

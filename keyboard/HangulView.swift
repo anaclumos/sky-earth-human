@@ -9,29 +9,9 @@ import SwiftUI
 
 struct HangulView: View {
   @EnvironmentObject var options: KeyboardOptions
-  @EnvironmentObject var autocomplete: TopAutocomplete
 
   var body: some View {
     VStack {
-      HStack {
-        AutocompleteButton(text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "", action: {
-          if autocomplete.list.count >= 1 {
-            autocomplete.action(autocomplete.list[0])
-          }
-        })
-        Divider()
-        AutocompleteButton(text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "", action: {
-          if autocomplete.list.count >= 2 {
-            autocomplete.action(autocomplete.list[1])
-          }
-        })
-        Divider()
-        AutocompleteButton(text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "", action: {
-          if autocomplete.list.count >= 3 {
-            autocomplete.action(autocomplete.list[2])
-          }
-        })
-      }
       HStack {
         KeyboardButton(text: "ㅣ", primary: true, action: {
           options.hangulAction("인", "ㅣ")
@@ -95,6 +75,7 @@ struct HangulView: View {
       }
     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
       .padding(10)
+      .padding(.top, 0)
       .background(
         Color("KeyboardBackground")
       )
