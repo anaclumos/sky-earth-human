@@ -13,6 +13,11 @@
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
 		503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF16329517BD50019A76B /* KeyboardButton.swift */; };
 		509749E52974B01900779F75 /* AutocompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E42974B01900779F75 /* AutocompleteButton.swift */; };
+		509749E72974CE8600779F75 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E62974CE8600779F75 /* NumberView.swift */; };
+		509749E92974CEA200779F75 /* TopAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E82974CEA200779F75 /* TopAutocomplete.swift */; };
+		509749EB2974D27C00779F75 /* HangulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EA2974D27C00779F75 /* HangulView.swift */; };
+		509749ED2974D3A700779F75 /* KeyboardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EC2974D3A700779F75 /* KeyboardOptions.swift */; };
+		509749EF2974D71800779F75 /* SymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EE2974D71800779F75 /* SymbolView.swift */; };
 		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
 		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
@@ -70,6 +75,11 @@
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; tabWidth = 2; };
 		509749E42974B01900779F75 /* AutocompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteButton.swift; sourceTree = "<group>"; };
+		509749E62974CE8600779F75 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		509749E82974CEA200779F75 /* TopAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAutocomplete.swift; sourceTree = "<group>"; };
+		509749EA2974D27C00779F75 /* HangulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulView.swift; sourceTree = "<group>"; };
+		509749EC2974D3A700779F75 /* KeyboardOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardOptions.swift; sourceTree = "<group>"; };
+		509749EE2974D71800779F75 /* SymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolView.swift; sourceTree = "<group>"; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanApp.swift; sourceTree = "<group>"; };
 		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -189,8 +199,13 @@
 				501DB47E2963252C001C4A24 /* 한글.json */,
 				503DF16329517BD50019A76B /* KeyboardButton.swift */,
 				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
+				509749E82974CEA200779F75 /* TopAutocomplete.swift */,
+				509749E62974CE8600779F75 /* NumberView.swift */,
 				509749E42974B01900779F75 /* AutocompleteButton.swift */,
 				503DF161295179970019A76B /* KeyboardView.swift */,
+				509749EE2974D71800779F75 /* SymbolView.swift */,
+				509749EC2974D3A700779F75 /* KeyboardOptions.swift */,
+				509749EA2974D27C00779F75 /* HangulView.swift */,
 				501DB481296336FD001C4A24 /* NextKeyboard.swift */,
 				50AFDDE1295012A5001BF44D /* Info.plist */,
 			);
@@ -390,8 +405,13 @@
 				503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */,
 				501DB482296336FD001C4A24 /* NextKeyboard.swift in Sources */,
 				50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */,
+				509749E92974CEA200779F75 /* TopAutocomplete.swift in Sources */,
+				509749ED2974D3A700779F75 /* KeyboardOptions.swift in Sources */,
 				503DF162295179970019A76B /* KeyboardView.swift in Sources */,
+				509749EF2974D71800779F75 /* SymbolView.swift in Sources */,
+				509749EB2974D27C00779F75 /* HangulView.swift in Sources */,
 				509749E52974B01900779F75 /* AutocompleteButton.swift in Sources */,
+				509749E72974CE8600779F75 /* NumberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

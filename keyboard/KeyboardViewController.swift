@@ -48,7 +48,8 @@ class KeyboardViewController: UIInputViewController {
       loadJsonAsync()
     }
     let nextKeyboardAction = #selector(handleInputModeList(from:with:))
-    let keyboardView = UIHostingController(rootView: KeyboardView(
+
+    let options = KeyboardOptions(
       colorScheme: traitCollection.userInterfaceStyle == .dark ? .dark : .light,
       needsInputModeSwitchKey: needsInputModeSwitchKey,
       nextKeyboardAction: nextKeyboardAction,
@@ -60,7 +61,9 @@ class KeyboardViewController: UIInputViewController {
       spaceAction: spaceAction,
       autocomplete: autocomplete,
       autocompleteAction: autocompleteAction
-    ))
+    )
+
+    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options))
     autocomplete.list = ["", "", ""]
     view.addSubview(keyboardView.view)
     keyboardView.view.invalidateIntrinsicContentSize()
