@@ -36,7 +36,6 @@ struct KeyboardView: View {
           Color("KeyboardBackground")
         )
         .padding(5)
-        .padding(.bottom, 0)
       if options.current == .hangul {
         HangulView()
       } else if options.current == .number {

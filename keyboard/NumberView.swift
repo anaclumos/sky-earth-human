@@ -5,8 +5,8 @@
 //  Created by Sunghyun Cho on 1/15/23.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct NumberView: View {
   @EnvironmentObject var options: KeyboardOptions
@@ -84,9 +84,10 @@ struct NumberView: View {
           options.dismissKeyboard()
         })
       }
-    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }.frame(maxWidth: 500, maxHeight: .infinity, alignment: .center)
       .padding(.leading, 10)
       .padding(.trailing, 10)
+      .padding(.bottom, 10)
       .background(
         Color("KeyboardBackground")
       )

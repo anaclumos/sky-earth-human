@@ -167,9 +167,10 @@ struct HangulView: View {
           options.dismissKeyboard()
         })
       }
-    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }.frame(maxWidth: 500, maxHeight: .infinity, alignment: .center)
       .padding(.leading, 10)
       .padding(.trailing, 10)
+      .padding(.bottom, 10)
       .background(
         Color("KeyboardBackground")
       )
