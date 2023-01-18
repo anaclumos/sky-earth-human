@@ -67,7 +67,7 @@ struct NumberView: View {
       }
       HStack {
         HStack {
-          KeyboardButton(text: "@#$", primary: false, action: { options.current = .symbol })
+          KeyboardButton(text: "@#", primary: false, action: { options.current = .symbol })
           if options.needsInputModeSwitchKey {
             NextKeyboardButton(systemName: "globe",
                                action: options.nextKeyboardAction,

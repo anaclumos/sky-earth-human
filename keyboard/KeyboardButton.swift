@@ -37,7 +37,6 @@ struct KeyboardButton: View {
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
           )
-          .kerning(2)
           .cornerRadius(5)
       }
     }
