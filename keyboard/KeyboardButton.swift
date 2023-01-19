@@ -5,12 +5,10 @@
 //  Created by Sunghyun Cho on 12/20/22.
 //
 
-import CoreHaptics
 import SwiftUI
 
 struct KeyboardButton: View {
   @State var pressing = false
-
   @Environment(\.colorScheme) var colorScheme
   var text: String?
   var systemName: String?
@@ -59,9 +57,12 @@ struct KeyboardButton: View {
           onLongPressFinished?()
         }
     )
-    .highPriorityGesture(TapGesture()
-      .onEnded { _ in
-        action()
+    .highPriorityGesture(
+      withAnimation(.easeInOut(duration: 1)) {
+        TapGesture()
+          .onEnded { _ in
+            action()
+          }
       }
     )
   }

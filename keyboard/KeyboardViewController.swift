@@ -17,6 +17,7 @@ class KeyboardViewController: UIInputViewController {
   var isEditingLastCharacter = false
   var options: KeyboardOptions?
   var autocomplete: TopAutocomplete?
+  var uiTextChecker = UITextChecker()
   override func updateViewConstraints() {
     super.updateViewConstraints()
   }
@@ -142,9 +143,10 @@ class KeyboardViewController: UIInputViewController {
         return
       }
     }
+
     proxy.insertText(fallback)
     isEditingLastCharacter = true
-    proxyBackup = fallback
+    proxyBackup += fallback
     proxyHistory = [fallback]
     updateAutocomplete()
   }
@@ -217,6 +219,12 @@ class KeyboardViewController: UIInputViewController {
 
   func spaceAction() {
     if !isEditingLastCharacter {
+      let proxy = textDocumentProxy
+      let allString = proxy.documentContextBeforeInput ?? ""
+      let lastWord = allString.components(separatedBy: " ").last ?? ""
+      UITextChecker.learnWord(lastWord)
+      proxyHistory = []
+      proxyBackup = ""
       textDocumentProxy.insertText(" ")
     } else {
       isEditingLastCharacter = false
@@ -231,13 +239,13 @@ class KeyboardViewController: UIInputViewController {
     while let lastCharacter = proxy.documentContextBeforeInput?.last, lastCharacter != " " {
       proxy.deleteBackward()
     }
-    proxy.insertText(completion)
+    proxy.insertText(completion + " ")
     proxyBackup = completion
+    UITextChecker.learnWord(completion)
     proxyHistory = []
   }
 
   func updateAutocomplete() {
-    let uiTextChecker = UITextChecker()
     let proxy = textDocumentProxy
     let allString = proxy.documentContextBeforeInput ?? ""
     let lastWord = allString.components(separatedBy: " ").last ?? ""
