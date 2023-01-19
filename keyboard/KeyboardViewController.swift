@@ -58,6 +58,7 @@ class KeyboardViewController: UIInputViewController {
       dismissKeyboard: dismissKeyboard,
       deleteAction: deleteAction,
       spaceAction: spaceAction,
+      returnAction: returnAction,
       simpleInput: simpleInput
     )
 
@@ -231,6 +232,17 @@ class KeyboardViewController: UIInputViewController {
       proxyBackup = ""
       proxyHistory = []
     }
+    updateAutocomplete()
+  }
+
+  func returnAction() {
+    let proxy = textDocumentProxy
+    let allString = proxy.documentContextBeforeInput ?? ""
+    let lastWord = allString.components(separatedBy: " ").last ?? ""
+    UITextChecker.learnWord(lastWord)
+    proxyHistory = []
+    proxyBackup = ""
+    proxy.insertText("\n")
     updateAutocomplete()
   }
 

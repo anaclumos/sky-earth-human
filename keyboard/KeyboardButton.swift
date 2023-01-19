@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct KeyboardButton: View {
-  @State var pressing = false
+  @State private var pressed: Bool = false
   @Environment(\.colorScheme) var colorScheme
+
   var text: String?
   var systemName: String?
   let primary: Bool
@@ -20,8 +21,8 @@ struct KeyboardButton: View {
     Button(action: {}) {
       if systemName != nil {
         Image(systemName: systemName!)
-          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
-          .font(.system(size: 24))
+          .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
+          .font(.system(size: 20))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
@@ -29,8 +30,8 @@ struct KeyboardButton: View {
           .cornerRadius(5)
       } else if text != nil {
         Text(text!)
-          .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
-          .font(.system(size: 24))
+          .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
+          .font(.system(size: 20))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
@@ -49,11 +50,9 @@ struct KeyboardButton: View {
     .simultaneousGesture(
       DragGesture(minimumDistance: 0)
         .onChanged { _ in
-          pressing = true
           onLongPress?()
         }
         .onEnded { _ in
-          pressing = false
           onLongPressFinished?()
         }
     )
@@ -61,9 +60,13 @@ struct KeyboardButton: View {
       withAnimation(.easeInOut(duration: 1)) {
         TapGesture()
           .onEnded { _ in
+            pressed = true
             action()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+              pressed = false
+            }
           }
-      }
-    )
+      })
+    .opacity(pressed ? 0.5 : 1.0)
   }
 }

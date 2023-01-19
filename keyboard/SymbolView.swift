@@ -75,7 +75,7 @@ struct SymbolView: View {
           options.simpleInput(available[page][11])
         })
         KeyboardButton(systemName: "return", primary: false, action: {
-          options.proxy.insertText("\n")
+          options.returnAction()
         })
       }
       HStack {

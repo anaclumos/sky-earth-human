@@ -48,7 +48,7 @@ struct NumberView: View {
           options.simpleInput("6")
         })
         KeyboardButton(systemName: "return", primary: false, action: {
-          options.proxy.insertText("\n")
+          options.returnAction()
         })
       }
       HStack {
