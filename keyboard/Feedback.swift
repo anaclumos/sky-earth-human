@@ -11,29 +11,15 @@ import UIKit
 class Feedback {
   static let shared = Feedback()
 
-  var haptics: Bool?
-  var sounds: Bool?
+  var haptics: Bool? = true
+  var sounds: Bool? = true
 
   let generator = UIImpactFeedbackGenerator(style: .light)
 
-  private init() {
-    if let haptics = UserDefaults.standard.object(forKey: "haptics") as? Bool {
-      self.haptics = haptics
-    } else {
-      print("haptics not found")
-    }
-    if let sounds = UserDefaults.standard.object(forKey: "sounds") as? Bool {
-      self.sounds = sounds
-    } else {
-      print("sounds not found")
-    }
-  }
+  private init() {}
 
   func playHaptics() {
-    if !(haptics ?? false) {
-      print("Haptic feedback is disabled")
-      return
-    }
+    if !(haptics ?? false) { return }
     generator.impactOccurred()
   }
 
