@@ -17,12 +17,15 @@ struct KeyboardButton: View {
   var action: () -> Void
   var onLongPress: (() -> Void)?
   var onLongPressFinished: (() -> Void)?
+
+  let fontWeight: Font.Weight = UIAccessibility.isBoldTextEnabled ? .bold : .regular
+
   var body: some View {
     Button(action: {}) {
       if systemName != nil {
         Image(systemName: systemName!)
           .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
-          .font(.system(size: 24))
+          .font(.system(size: 24, weight: fontWeight))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
@@ -31,7 +34,7 @@ struct KeyboardButton: View {
       } else if text != nil {
         Text(text!)
           .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
-          .font(.system(size: 24))
+          .font(.system(size: 24, weight: fontWeight))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
