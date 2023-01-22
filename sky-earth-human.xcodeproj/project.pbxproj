@@ -18,6 +18,10 @@
 		509749EB2974D27C00779F75 /* HangulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EA2974D27C00779F75 /* HangulView.swift */; };
 		509749ED2974D3A700779F75 /* KeyboardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EC2974D3A700779F75 /* KeyboardOptions.swift */; };
 		509749EF2974D71800779F75 /* SymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EE2974D71800779F75 /* SymbolView.swift */; };
+		5098A0D6297CB1F40068450A /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098A0D5297CB1F40068450A /* Feedback.swift */; };
+		5098A0D8297CBCEA0068450A /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098A0D7297CBCEA0068450A /* MailView.swift */; };
+		5098A0E2297CD3170068450A /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098A0E1297CD3170068450A /* SettingsBundleHelper.swift */; };
+		5098A0E4297CD7FF0068450A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5098A0E3297CD7FF0068450A /* Settings.bundle */; };
 		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
 		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
@@ -79,6 +83,10 @@
 		509749EA2974D27C00779F75 /* HangulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulView.swift; sourceTree = "<group>"; };
 		509749EC2974D3A700779F75 /* KeyboardOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardOptions.swift; sourceTree = "<group>"; };
 		509749EE2974D71800779F75 /* SymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolView.swift; sourceTree = "<group>"; };
+		5098A0D5297CB1F40068450A /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		5098A0D7297CBCEA0068450A /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		5098A0E1297CD3170068450A /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		5098A0E3297CD7FF0068450A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanApp.swift; sourceTree = "<group>"; };
 		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
 				50AFDDAB29501257001BF44D /* ContentView.swift */,
+				5098A0D7297CBCEA0068450A /* MailView.swift */,
 				50AFDDB729501258001BF44D /* Info.plist */,
 				50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */,
 				50AFDDAF29501258001BF44D /* Preview Content */,
@@ -195,6 +204,8 @@
 			children = (
 				501DB47E2963252C001C4A24 /* 한글.min.json */,
 				503DF16329517BD50019A76B /* KeyboardButton.swift */,
+				5098A0D5297CB1F40068450A /* Feedback.swift */,
+				5098A0E1297CD3170068450A /* SettingsBundleHelper.swift */,
 				50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */,
 				509749E82974CEA200779F75 /* TopAutocomplete.swift */,
 				509749E62974CE8600779F75 /* NumberView.swift */,
@@ -205,6 +216,7 @@
 				509749EA2974D27C00779F75 /* HangulView.swift */,
 				501DB481296336FD001C4A24 /* NextKeyboard.swift */,
 				50AFDDE1295012A5001BF44D /* Info.plist */,
+				5098A0E3297CD7FF0068450A /* Settings.bundle */,
 			);
 			path = keyboard;
 			sourceTree = "<group>";
@@ -360,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */,
+				5098A0E4297CD7FF0068450A /* Settings.bundle in Resources */,
 				501DB47F2963252C001C4A24 /* 한글.min.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +387,7 @@
 				50AFDDAC29501257001BF44D /* ContentView.swift in Sources */,
 				50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */,
 				50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */,
+				5098A0D8297CBCEA0068450A /* MailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +416,8 @@
 				501DB482296336FD001C4A24 /* NextKeyboard.swift in Sources */,
 				50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */,
 				509749E92974CEA200779F75 /* TopAutocomplete.swift in Sources */,
+				5098A0E2297CD3170068450A /* SettingsBundleHelper.swift in Sources */,
+				5098A0D6297CB1F40068450A /* Feedback.swift in Sources */,
 				509749ED2974D3A700779F75 /* KeyboardOptions.swift in Sources */,
 				503DF162295179970019A76B /* KeyboardView.swift in Sources */,
 				509749EF2974D71800779F75 /* SymbolView.swift in Sources */,
@@ -571,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -605,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -707,7 +723,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -734,7 +750,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

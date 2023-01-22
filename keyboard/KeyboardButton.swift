@@ -22,7 +22,7 @@ struct KeyboardButton: View {
       if systemName != nil {
         Image(systemName: systemName!)
           .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
-          .font(.system(size: 20))
+          .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
@@ -31,7 +31,7 @@ struct KeyboardButton: View {
       } else if text != nil {
         Text(text!)
           .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
-          .font(.system(size: 20))
+          .font(.system(size: 24))
           .foregroundColor(Color(uiColor: UIColor.label))
           .background(
             primary ? Color("PrimaryKeyboardButton") : Color("SecondaryKeyboardButton")
@@ -57,7 +57,7 @@ struct KeyboardButton: View {
         }
     )
     .highPriorityGesture(
-      withAnimation(.easeInOut(duration: 1)) {
+      withAnimation(.easeInOut(duration: 0.5)) {
         TapGesture()
           .onEnded { _ in
             pressed = true

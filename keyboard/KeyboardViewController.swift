@@ -39,8 +39,23 @@ class KeyboardViewController: UIInputViewController {
   }
 
   override func viewDidLoad() {
+    SettingsBundleHelper.checkAndExecuteSettings()
+    SettingsBundleHelper.setVersionAndBuildNumber()
     super.viewDidLoad()
+    registerSettingsBundle()
+    NotificationCenter.default.addObserver(self, selector: #selector(defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    defaultsChanged()
     setup()
+  }
+
+  func registerSettingsBundle() {
+    let appDefaults = [String: AnyObject]()
+    UserDefaults.standard.register(defaults: appDefaults)
+  }
+
+  @objc func defaultsChanged() {
+    Feedback.shared.haptics = UserDefaults.standard.bool(forKey: "haptics")
+    Feedback.shared.sounds = UserDefaults.standard.bool(forKey: "sounds")
   }
 
   private func setup() {
