@@ -183,7 +183,7 @@ struct SymbolView: View {
         })
         HStack {
           KeyboardButton(systemName: "space", primary: false, action: {
-            Feedback.shared.playTypeSound()
+            Feedback.shared.playModifierSound()
             Feedback.shared.playHaptics()
             options.spaceAction()
           })

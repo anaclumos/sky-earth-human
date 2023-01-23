@@ -110,7 +110,7 @@ struct NumberView: View {
           options.simpleInput("0")
         })
         KeyboardButton(systemName: "space", primary: false, action: {
-          Feedback.shared.playTypeSound()
+          Feedback.shared.playModifierSound()
           Feedback.shared.playHaptics()
           options.spaceAction()
         })
