@@ -32,9 +32,6 @@
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDB029501258001BF44D /* Preview Assets.xcassets */; };
 		50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */; };
-		50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */; };
-		50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */; };
-		50AFDDCD29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */; };
 		50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */; };
 		50AFDDE4295012A5001BF44D /* keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50AFDDDD295012A5001BF44D /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -105,10 +102,7 @@
 		50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sky_earth_human.xcdatamodel; sourceTree = "<group>"; };
 		50AFDDB729501258001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanTests.swift; sourceTree = "<group>"; };
 		50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITests.swift; sourceTree = "<group>"; };
-		50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		50AFDDDD295012A5001BF44D /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		50AFDDE1295012A5001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				50AFDDA829501257001BF44D /* sky-earth-human */,
-				50AFDDBF29501258001BF44D /* sky-earth-humanTests */,
-				50AFDDC929501258001BF44D /* sky-earth-humanUITests */,
 				50AFDDDE295012A5001BF44D /* keyboard */,
 				50AFDDA729501257001BF44D /* Products */,
 			);
@@ -197,23 +189,6 @@
 				50AFDDB029501258001BF44D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		50AFDDBF29501258001BF44D /* sky-earth-humanTests */ = {
-			isa = PBXGroup;
-			children = (
-				50AFDDC029501258001BF44D /* sky_earth_humanTests.swift */,
-			);
-			path = "sky-earth-humanTests";
-			sourceTree = "<group>";
-		};
-		50AFDDC929501258001BF44D /* sky-earth-humanUITests */ = {
-			isa = PBXGroup;
-			children = (
-				50AFDDCA29501258001BF44D /* sky_earth_humanUITests.swift */,
-				50AFDDCC29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift */,
-			);
-			path = "sky-earth-humanUITests";
 			sourceTree = "<group>";
 		};
 		50AFDDDE295012A5001BF44D /* keyboard */ = {
@@ -416,7 +391,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AFDDC129501258001BF44D /* sky_earth_humanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,8 +398,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AFDDCB29501258001BF44D /* sky_earth_humanUITests.swift in Sources */,
-				50AFDDCD29501258001BF44D /* sky_earth_humanUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
