@@ -64,7 +64,7 @@ struct NumberView: View {
           options.simpleInput("6")
         })
         KeyboardButton(systemName: "return", primary: false, action: {
-          Feedback.shared.playTypeSound()
+          Feedback.shared.playModifierSound()
           Feedback.shared.playHaptics()
           options.returnAction()
         })

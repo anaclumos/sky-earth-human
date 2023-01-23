@@ -115,7 +115,7 @@ struct SymbolView: View {
           })
         }
         KeyboardButton(systemName: "return", primary: false, action: {
-          Feedback.shared.playTypeSound()
+          Feedback.shared.playModifierSound()
           Feedback.shared.playHaptics()
           options.returnAction()
         })

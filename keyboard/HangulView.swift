@@ -126,7 +126,7 @@ struct HangulView: View {
           lastLongPressKey = ""
         })
         KeyboardButton(systemName: "return", primary: false, action: {
-          Feedback.shared.playTypeSound()
+          Feedback.shared.playModifierSound()
           Feedback.shared.playHaptics()
           options.returnAction()
         })
