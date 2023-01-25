@@ -100,20 +100,6 @@ class KeyboardViewController: UIInputViewController {
       updateAutocomplete()
       return
     }
-    if proxyBackup.count > 2 {
-      let lastThreeCharacters = proxyBackup.suffix(3)
-      if map.keys.contains(String(lastThreeCharacters)) {
-        proxy.deleteBackward()
-        proxy.deleteBackward()
-        proxy.deleteBackward()
-        let next = map[String(lastThreeCharacters)]!
-        proxy.insertText(next)
-        proxyBackup = next
-        proxyHistory = [next]
-        updateAutocomplete()
-        return
-      }
-    }
     if proxyBackup.count > 1 {
       let lastTwoCharacters = proxyBackup.suffix(2)
       if map.keys.contains(String(lastTwoCharacters)) {

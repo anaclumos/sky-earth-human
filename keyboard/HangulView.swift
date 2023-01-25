@@ -34,7 +34,7 @@ struct HangulView: View {
         KeyboardButton(text: "·", primary: true, action: {
           Feedback.shared.playTypeSound()
           Feedback.shared.playHaptics()
-          options.hangulAction("천", "ㆍ")
+          options.hangulAction("천", "ᆞ")
         },
         onLongPress: {
           if lastLongPressKey == "2" { return }
