@@ -25,10 +25,9 @@ struct StoreReviewButtonView: View {
         secondaryButton: .default(Text("네!")) {
           if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             SKStoreReviewController.requestReview(in: windowScene)
+            
           }
-          else {
-            UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id/1666355842?action=write-review")!)
-          }
+          UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id/1666355842?action=write-review")!)
         })
     }
     .frame(maxWidth: .infinity, alignment: .leading)
