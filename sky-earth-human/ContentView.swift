@@ -19,8 +19,8 @@ struct ContentView: View {
         GoToGitHubView()
         HowToInstallView()
       }
+      .padding()
     }
-    .padding()
     .navigationTitle("하늘땅사람")
     .navigationBarTitleDisplayMode(.inline)
   }
