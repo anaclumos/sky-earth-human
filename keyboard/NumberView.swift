@@ -85,10 +85,10 @@ struct NumberView: View {
           Feedback.shared.playHaptics()
           options.simpleInput("9")
         })
-        KeyboardButton(text: ".?!", primary: false, action: {
+        KeyboardButton(text: ".,?!", primary: false, action: {
           Feedback.shared.playTypeSound()
           Feedback.shared.playHaptics()
-          options.textAction(".", "?", "!")
+          options.textAction(".", ",", "?", "!")
         })
       }
       HStack {

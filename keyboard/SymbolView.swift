@@ -157,10 +157,10 @@ struct SymbolView: View {
             options.simpleInput(available[page][17])
           })
         }
-        KeyboardButton(text: ".?!", primary: false, action: {
+        KeyboardButton(text: ".,?!", primary: false, action: {
           Feedback.shared.playTypeSound()
           Feedback.shared.playHaptics()
-          options.textAction(".", "?", "!")
+          options.textAction(".", ",", "?", "!")
         })
       }
       HStack {
