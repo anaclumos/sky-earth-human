@@ -146,7 +146,12 @@ class KeyboardViewController: UIInputViewController {
     updateAutocomplete()
   }
 
-  func composableInput(first: String, second: String? = nil, third: String? = nil) {
+  func composableInput(
+    first: String,
+    second: String? = nil,
+    third: String? = nil,
+    fourth: String? = nil
+  ) {
     let proxy = textDocumentProxy
     if isEditingLastCharacter {
       if let lastCharacter = proxy.documentContextBeforeInput?.last {
@@ -164,7 +169,21 @@ class KeyboardViewController: UIInputViewController {
           proxyHistory = []
           updateAutocomplete()
           return
+        } else if lastCharacter == second?.first {
+          proxy.deleteBackward()
+          proxy.insertText(third ?? first)
+          proxyBackup = third ?? first
+          proxyHistory = []
+          updateAutocomplete()
+          return
         } else if third != nil, lastCharacter == third?.first {
+          proxy.deleteBackward()
+          proxy.insertText(first)
+          proxyBackup = first
+          proxyHistory = []
+          updateAutocomplete()
+          return
+        } else if fourth != nil, lastCharacter == fourth?.first {
           proxy.deleteBackward()
           proxy.insertText(first)
           proxyBackup = first
