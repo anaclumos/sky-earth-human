@@ -69,7 +69,8 @@ struct KeyboardButton: View {
               pressed = false
             }
           }
-      })
+      }
+    )
     .opacity(pressed ? 0.5 : 1.0)
   }
 }

@@ -26,9 +26,10 @@ struct NextKeyboardButtonOverlay: UIViewRepresentable {
   let action: Selector
   func makeUIView(context _: Context) -> UIButton {
     let button = UIButton()
-    button.addTarget(nil,
-                     action: action,
-                     for: .allTouchEvents)
+    button.addTarget(
+      nil,
+      action: action,
+      for: .allTouchEvents)
     return button
   }
 
