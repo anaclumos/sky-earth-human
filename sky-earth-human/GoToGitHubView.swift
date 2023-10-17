@@ -13,7 +13,7 @@ struct GoToGitHubView: View {
       UIApplication.shared.open(URL(string: "https://github.com/anaclumos/sky-earth-human")!)
     }) {
       Image(systemName: "wrench.and.screwdriver").frame(width: 20, alignment: .center)
-      Text("GitHub에서 보기").frame(alignment: .center)
+      Text("GitHub에서 보기").frame(alignment: .center).frame(maxWidth: .infinity, alignment: .leading)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(10)

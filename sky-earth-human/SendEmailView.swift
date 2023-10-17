@@ -16,7 +16,8 @@ struct SendEmailView: View {
       self.isShowingMailView.toggle()
     }) {
       Image(systemName: "paperplane.fill").frame(width: 20, alignment: .center)
-      Text("버그 제보 및 기능 제안하기")
+      Text("버그 제보 및 기능 제안하기").frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     .disabled(!MFMailComposeViewController.canSendMail())
     .sheet(isPresented: $isShowingMailView) {

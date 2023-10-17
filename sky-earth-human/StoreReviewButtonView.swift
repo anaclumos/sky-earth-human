@@ -16,6 +16,7 @@ struct StoreReviewButtonView: View {
     }) {
       Image(systemName: "heart.fill").frame(width: 20, alignment: .center)
       Text("5점 리뷰 남기기").frame(alignment: .center)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     .alert(isPresented: $showingAlert) {
       Alert(

@@ -19,7 +19,7 @@ struct ShareWithFriendView: View {
           Text(text)
       ) {
         Image(systemName: "square.and.arrow.up").frame(width: 20, alignment: .center)
-        Text(displayText)
+        Text(displayText).frame(maxWidth: .infinity, alignment: .leading)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
       .padding(10)

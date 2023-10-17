@@ -12,7 +12,7 @@ struct GoToSettingsView: View {
     Button(action: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) })
     {
       Image(systemName: "gear").frame(width: 20, alignment: .center)
-      Text("설정").frame(alignment: .center)
+      Text("설정 앱 열기").frame(alignment: .center)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(10)
