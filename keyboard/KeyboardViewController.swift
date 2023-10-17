@@ -28,7 +28,9 @@ class KeyboardViewController: UIInputViewController {
         do {
           let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
           let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-          if let jsonResult = jsonResult as? [String: Any], let 데이터 = jsonResult as? [String: [String: String]] {
+          if let jsonResult = jsonResult as? [String: Any],
+            let 데이터 = jsonResult as? [String: [String: String]]
+          {
             self.한글 = 데이터
           }
         } catch {
@@ -64,7 +66,8 @@ class KeyboardViewController: UIInputViewController {
 
     let autocomplete = TopAutocomplete(action: autocompleteAction)
     autocomplete.list = ["", "", ""]
-    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
+    let keyboardView = UIHostingController(
+      rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
 
     self.options = options
     self.autocomplete = autocomplete
@@ -87,7 +90,9 @@ class KeyboardViewController: UIInputViewController {
 
     let proxy = textDocumentProxy
 
-    if proxy.documentContextBeforeInput == nil || !(proxy.documentContextBeforeInput!.suffix(2)).contains(proxyBackup) {
+    if proxy.documentContextBeforeInput == nil
+      || !(proxy.documentContextBeforeInput!.suffix(2)).contains(proxyBackup)
+    {
       proxyBackup = ""
       proxyHistory = []
     }
@@ -203,7 +208,7 @@ class KeyboardViewController: UIInputViewController {
   func deleteAction() {
     if proxyHistory.count > 1 {
       let proxy = textDocumentProxy
-      for _ in 0 ..< (proxyHistory.last?.count ?? 0) {
+      for _ in 0..<(proxyHistory.last?.count ?? 0) {
         proxy.deleteBackward()
       }
       if isEditingLastCharacter {
@@ -267,7 +272,8 @@ class KeyboardViewController: UIInputViewController {
     let allString = proxy.documentContextBeforeInput ?? ""
     let lastWord = allString.components(separatedBy: " ").last ?? ""
     let range = NSRange(location: 0, length: lastWord.count)
-    let guesses = uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
+    let guesses =
+      uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
     if guesses.count > 0, guesses[0] == lastWord {
       autocomplete?.list = Array(guesses.dropFirst())
     } else {
