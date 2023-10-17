@@ -63,7 +63,7 @@ struct MailView: UIViewControllerRepresentable {
 
       하늘땅사람 버전: \((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
       iOS 버전: \(UIDevice.current.systemVersion)
-      기기: \(deviceModelIdentifier())
+      기기: \(deviceModelReadable())
 
       """, isHTML: false)
     vc.mailComposeDelegate = context.coordinator
