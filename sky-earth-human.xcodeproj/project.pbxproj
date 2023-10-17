@@ -34,8 +34,6 @@
 		50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */; };
 		50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */; };
 		50AFDDE4295012A5001BF44D /* keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50AFDDDD295012A5001BF44D /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DA4E64FF2ADE027800D7AAB1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA4E64FE2ADE027800D7AAB1 /* Settings.bundle */; };
-		DA4E65002ADE027800D7AAB1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA4E64FE2ADE027800D7AAB1 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +106,6 @@
 		50AFDDDD295012A5001BF44D /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		50AFDDE1295012A5001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA4E64FE2ADE027800D7AAB1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +143,6 @@
 		50AFDD9D29501256001BF44D = {
 			isa = PBXGroup;
 			children = (
-				DA4E64FE2ADE027800D7AAB1 /* Settings.bundle */,
 				50AFDDA829501257001BF44D /* sky-earth-human */,
 				50AFDDDE295012A5001BF44D /* keyboard */,
 				50AFDDA729501257001BF44D /* Products */,
@@ -343,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */,
-				DA4E64FF2ADE027800D7AAB1 /* Settings.bundle in Resources */,
 				50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +362,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */,
-				DA4E65002ADE027800D7AAB1 /* Settings.bundle in Resources */,
 				501DB47F2963252C001C4A24 /* 한글.min.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
