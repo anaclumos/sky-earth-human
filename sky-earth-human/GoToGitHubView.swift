@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GoToGitHubView: View {
   var body: some View {
-    Button(action: { UIApplication.shared.open(URL(string: "https://github.com/anaclumos/sky-earth-human")!) }) {
+    Button(action: {
+      UIApplication.shared.open(URL(string: "https://github.com/anaclumos/sky-earth-human")!)
+    }) {
       Image(systemName: "wrench.and.screwdriver").frame(width: 20, alignment: .center)
       Text("GitHub에서 보기").frame(alignment: .center)
     }

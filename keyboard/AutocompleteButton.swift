@@ -12,18 +12,20 @@ struct AutocompleteButton: View {
   let action: () -> Void
 
   var body: some View {
-    Button(action: action,
-           label: {
-             Text(text ?? "")
-               .frame(
-                 idealWidth: .infinity,
-                 maxWidth: .infinity,
-                 minHeight: 0,
-                 idealHeight: 40,
-                 alignment: .center
-               )
-               .foregroundColor(Color(uiColor: UIColor.label))
-           }).frame(
+    Button(
+      action: action,
+      label: {
+        Text(text ?? "")
+          .frame(
+            idealWidth: .infinity,
+            maxWidth: .infinity,
+            minHeight: 0,
+            idealHeight: 40,
+            alignment: .center
+          )
+          .foregroundColor(Color(uiColor: UIColor.label))
+      }
+    ).frame(
       minWidth: 0,
       idealWidth: .infinity,
       maxWidth: .infinity,

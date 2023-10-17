@@ -9,7 +9,8 @@ import SwiftUI
 
 struct GoToSettingsView: View {
   var body: some View {
-    Button(action: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) }) {
+    Button(action: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) })
+    {
       Image(systemName: "gear").frame(width: 20, alignment: .center)
       Text("설정").frame(alignment: .center)
     }

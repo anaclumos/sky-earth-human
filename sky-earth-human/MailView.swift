@@ -17,17 +17,19 @@ struct MailView: UIViewControllerRepresentable {
     @Binding var presentation: PresentationMode
     @Binding var result: Result<MFMailComposeResult, Error>?
 
-    init(presentation: Binding<PresentationMode>,
-         result: Binding<Result<MFMailComposeResult, Error>?>)
-    {
+    init(
+      presentation: Binding<PresentationMode>,
+      result: Binding<Result<MFMailComposeResult, Error>?>
+    ) {
       _presentation = presentation
       _result = result
     }
 
-    func mailComposeController(_: MFMailComposeViewController,
-                               didFinishWith result: MFMailComposeResult,
-                               error: Error?)
-    {
+    func mailComposeController(
+      _: MFMailComposeViewController,
+      didFinishWith result: MFMailComposeResult,
+      error: Error?
+    ) {
       defer {
         $presentation.wrappedValue.dismiss()
       }
@@ -40,29 +42,35 @@ struct MailView: UIViewControllerRepresentable {
   }
 
   func makeCoordinator() -> Coordinator {
-    return Coordinator(presentation: presentation,
-                       result: $result)
+    return Coordinator(
+      presentation: presentation,
+      result: $result)
   }
 
-  func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
+  func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>)
+    -> MFMailComposeViewController
+  {
     let vc = MFMailComposeViewController()
     vc.setToRecipients(["hey@cho.sh"])
     vc.setSubject("하늘땅사람 관련 문의")
-    vc.setMessageBody("""
+    vc.setMessageBody(
+      """
 
-    문의 내용을 여기에 입력해주세요.
+      문의 내용을 여기에 입력해주세요.
 
-    --------------------
+      --------------------
 
-    하늘땅사람 버전: \((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
-    iOS 버전: \(UIDevice.current.systemVersion)
-    기기: \(UIDevice.current.model)
+      하늘땅사람 버전: \((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
+      iOS 버전: \(UIDevice.current.systemVersion)
+      기기: \(UIDevice.current.model)
 
-    """, isHTML: false)
+      """, isHTML: false)
     vc.mailComposeDelegate = context.coordinator
     return vc
   }
 
-  func updateUIViewController(_: MFMailComposeViewController,
-                              context _: UIViewControllerRepresentableContext<MailView>) {}
+  func updateUIViewController(
+    _: MFMailComposeViewController,
+    context _: UIViewControllerRepresentableContext<MailView>
+  ) {}
 }

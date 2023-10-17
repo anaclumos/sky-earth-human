@@ -18,16 +18,18 @@ struct StoreReviewButtonView: View {
       Text("5점 리뷰 남기기").frame(alignment: .center)
     }
     .alert(isPresented: $showingAlert) {
-      Alert(title:
-        Text("5점 리뷰를 남겨주세요!"),
+      Alert(
+        title:
+          Text("5점 리뷰를 남겨주세요!"),
         message: Text("이 키보드는 무료입니다.\n5점 리뷰를 남겨주시면 큰 동기부여가 됩니다.\n앱스토어에 5점 리뷰를 남겨주시겠어요?"),
         primaryButton: .cancel(Text("다음에요...")),
         secondaryButton: .default(Text("네!")) {
           if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             SKStoreReviewController.requestReview(in: windowScene)
-            
+
           }
-          UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id/1666355842?action=write-review")!)
+          UIApplication.shared.open(
+            URL(string: "https://apps.apple.com/app/id/1666355842?action=write-review")!)
         })
     }
     .frame(maxWidth: .infinity, alignment: .leading)
