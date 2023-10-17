@@ -12,7 +12,7 @@ struct NextKeyboardButton: View {
       .overlay {
         NextKeyboardButtonOverlay(action: action)
       }
-      .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
+      .frame(maxWidth: .infinity, minHeight: 56, alignment: .center)
       .font(.system(size: 24))
       .foregroundColor(Color(uiColor: UIColor.label))
       .background(
