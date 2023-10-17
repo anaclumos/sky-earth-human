@@ -273,7 +273,7 @@ class KeyboardViewController: UIInputViewController {
     let lastWord = allString.components(separatedBy: " ").last ?? ""
     let range = NSRange(location: 0, length: lastWord.count)
     let guesses =
-      uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko") ?? []
+      uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko_KR") ?? []
     if guesses.count > 0, guesses[0] == lastWord {
       autocomplete?.list = Array(guesses.dropFirst())
     } else {
