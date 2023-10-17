@@ -183,8 +183,8 @@ class KeyboardViewController: UIInputViewController {
           return
         } else if third != nil, lastCharacter == third?.first {
           proxy.deleteBackward()
-          proxy.insertText(first)
-          proxyBackup = first
+          proxy.insertText(fourth ?? first)
+          proxyBackup = fourth ?? first
           proxyHistory = []
           updateAutocomplete()
           return

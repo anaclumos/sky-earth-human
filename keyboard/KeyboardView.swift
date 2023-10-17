@@ -14,23 +14,29 @@ struct KeyboardView: View {
   var body: some View {
     VStack(spacing: 0) {
       HStack {
-        AutocompleteButton(text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "", action: {
-          if autocomplete.list.count >= 1 {
-            autocomplete.action(autocomplete.list[0])
-          }
-        })
+        AutocompleteButton(
+          text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "",
+          action: {
+            if autocomplete.list.count >= 1 {
+              autocomplete.action(autocomplete.list[0])
+            }
+          })
         Divider()
-        AutocompleteButton(text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "", action: {
-          if autocomplete.list.count >= 2 {
-            autocomplete.action(autocomplete.list[1])
-          }
-        })
+        AutocompleteButton(
+          text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "",
+          action: {
+            if autocomplete.list.count >= 2 {
+              autocomplete.action(autocomplete.list[1])
+            }
+          })
         Divider()
-        AutocompleteButton(text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "", action: {
-          if autocomplete.list.count >= 3 {
-            autocomplete.action(autocomplete.list[2])
-          }
-        })
+        AutocompleteButton(
+          text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "",
+          action: {
+            if autocomplete.list.count >= 3 {
+              autocomplete.action(autocomplete.list[2])
+            }
+          })
       }.frame(height: 50, alignment: .center)
         .background(
           Color("KeyboardBackground")
