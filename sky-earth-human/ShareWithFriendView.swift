@@ -39,9 +39,20 @@ struct ShareWithFriendView: View {
   func deprecatedShare() {
     let activityViewController = UIActivityViewController(
       activityItems: [url, text], applicationActivities: nil)
-    UIApplication.shared.windows.first?.rootViewController?.present(
-      activityViewController, animated: true, completion: nil)
+
+    // Iterate over connected scenes to find an active window scene
+    if let windowScene = UIApplication.shared.connectedScenes.first(where: {
+      $0.activationState == .foregroundActive
+    }) as? UIWindowScene {
+      // Find a window that is currently being used
+      if let rootViewController = windowScene.windows.first(where: { $0.isKeyWindow })?
+        .rootViewController
+      {
+        rootViewController.present(activityViewController, animated: true, completion: nil)
+      }
+    }
   }
+
 }
 
 struct ShareWithFriendView_Previews: PreviewProvider {

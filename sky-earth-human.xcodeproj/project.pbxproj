@@ -12,7 +12,6 @@
 		501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
 		503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF16329517BD50019A76B /* KeyboardButton.swift */; };
-		50541F7B297E5A8900D3F4E2 /* HowToInstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F7A297E5A8900D3F4E2 /* HowToInstallView.swift */; };
 		50541F7D297E5AAA00D3F4E2 /* GoToSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */; };
 		50541F81297E5C3200D3F4E2 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F80297E5C3200D3F4E2 /* TitleView.swift */; };
 		50541F83297E5C9100D3F4E2 /* StoreReviewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */; };
@@ -31,9 +30,10 @@
 		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDB029501258001BF44D /* Preview Assets.xcassets */; };
-		50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */; };
 		50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */; };
 		50AFDDE4295012A5001BF44D /* keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50AFDDDD295012A5001BF44D /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DAC027802B69F76B009BFE4E /* HowToInstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */; };
+		DAC027822B69F79E009BFE4E /* QuickSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,6 @@
 		501DB481296336FD001C4A24 /* NextKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyboard.swift; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; tabWidth = 2; };
-		50541F7A297E5A8900D3F4E2 /* HowToInstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToInstallView.swift; sourceTree = "<group>"; };
 		50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSettingsView.swift; sourceTree = "<group>"; };
 		50541F80297E5C3200D3F4E2 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewButtonView.swift; sourceTree = "<group>"; };
@@ -99,13 +98,14 @@
 		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50AFDDAD29501258001BF44D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AFDDB029501258001BF44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sky_earth_human.xcdatamodel; sourceTree = "<group>"; };
 		50AFDDB729501258001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50AFDDBC29501258001BF44D /* sky-earth-humanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDC629501258001BF44D /* sky-earth-humanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sky-earth-humanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDDD295012A5001BF44D /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		50AFDDE1295012A5001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToInstallView.swift; sourceTree = "<group>"; };
+		DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,15 +169,15 @@
 				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
 				50AFDDAB29501257001BF44D /* ContentView.swift */,
+				DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */,
+				DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */,
 				50541F86297E5D3F00D3F4E2 /* ShareWithFriendView.swift */,
 				50541F84297E5CD900D3F4E2 /* SendEmailView.swift */,
 				50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */,
 				50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */,
 				50541F80297E5C3200D3F4E2 /* TitleView.swift */,
-				50541F7A297E5A8900D3F4E2 /* HowToInstallView.swift */,
 				5098A0D7297CBCEA0068450A /* MailView.swift */,
 				50AFDDB729501258001BF44D /* Info.plist */,
-				50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */,
 				50AFDDAF29501258001BF44D /* Preview Content */,
 			);
 			path = "sky-earth-human";
@@ -294,7 +294,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					50AFDDA529501257001BF44D = {
 						CreatedOnToolsVersion = 14.2;
@@ -374,14 +374,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				50541F8B297E672D00D3F4E2 /* GoToGitHubView.swift in Sources */,
+				DAC027802B69F76B009BFE4E /* HowToInstallView.swift in Sources */,
 				50541F7D297E5AAA00D3F4E2 /* GoToSettingsView.swift in Sources */,
 				50AFDDAC29501257001BF44D /* ContentView.swift in Sources */,
-				50AFDDB629501258001BF44D /* sky_earth_human.xcdatamodeld in Sources */,
 				50541F81297E5C3200D3F4E2 /* TitleView.swift in Sources */,
+				DAC027822B69F79E009BFE4E /* QuickSettingsView.swift in Sources */,
 				50541F87297E5D3F00D3F4E2 /* ShareWithFriendView.swift in Sources */,
 				50541F85297E5CD900D3F4E2 /* SendEmailView.swift in Sources */,
 				50541F83297E5C9100D3F4E2 /* StoreReviewButtonView.swift in Sources */,
-				50541F7B297E5A8900D3F4E2 /* HowToInstallView.swift in Sources */,
 				50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */,
 				5098A0D8297CBCEA0068450A /* MailView.swift in Sources */,
 			);
@@ -444,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -476,6 +477,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -504,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -536,6 +539,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -579,9 +583,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -613,9 +621,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -715,10 +727,14 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,10 +758,14 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "sh.cho.sky-earth-human.keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -801,19 +821,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		50AFDDB429501258001BF44D /* sky_earth_human.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */,
-			);
-			currentVersion = 50AFDDB529501258001BF44D /* sky_earth_human.xcdatamodel */;
-			path = sky_earth_human.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 50AFDD9E29501256001BF44D /* Project object */;
 }

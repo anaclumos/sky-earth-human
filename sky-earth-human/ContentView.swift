@@ -18,6 +18,7 @@ struct ContentView: View {
         SendEmailView()
         GoToGitHubView()
         HowToInstallView()
+        QuickSettingsView()
       }
       .padding()
     }

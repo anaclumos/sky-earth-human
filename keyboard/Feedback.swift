@@ -11,32 +11,41 @@ import UIKit
 class Feedback {
   static let shared = Feedback()
 
-  var haptics: Bool? = true
-  var sounds: Bool? = true
+  var sharedDefaults: UserDefaults?
 
   let generator = UIImpactFeedbackGenerator(style: .light)
 
-  private init() {}
+  private init() {
+    sharedDefaults = UserDefaults(suiteName: "group.sh.cho.sky-earth-human.settings")
+  }
+
+  var haptics: Bool {
+    return sharedDefaults?.bool(forKey: "isHapticFeedbackEnabled") ?? true
+  }
+
+  var sounds: Bool {
+    return sharedDefaults?.bool(forKey: "isSoundFeedbackEnabled") ?? true
+  }
 
   func playHaptics() {
-    if !(haptics ?? false) { return }
+    if !haptics { return }
     generator.impactOccurred()
   }
 
   func playTypeSound() {
-    if !(sounds ?? false) { return }
+    if !sounds { return }
     let systemSoundID: SystemSoundID = 1104
     AudioServicesPlaySystemSound(systemSoundID)
   }
 
   func playDeleteSound() {
-    if !(sounds ?? false) { return }
+    if !sounds { return }
     let systemSoundID: SystemSoundID = 1155
     AudioServicesPlaySystemSound(systemSoundID)
   }
 
   func playModifierSound() {
-    if !(sounds ?? false) { return }
+    if !sounds { return }
     let systemSoundID: SystemSoundID = 1156
     AudioServicesPlaySystemSound(systemSoundID)
   }
