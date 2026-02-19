@@ -29,8 +29,7 @@ struct StoreReviewButtonView: View {
             SKStoreReviewController.requestReview(in: windowScene)
 
           }
-          UIApplication.shared.open(
-            URL(string: "https://apps.apple.com/app/id/1666355842?action=write-review")!)
+          UIApplication.shared.open(AppURL.appStoreReview)
         })
     }
     .frame(maxWidth: .infinity, alignment: .leading)

@@ -1,44 +1,9 @@
-//
-//  KeyboardViewController.swift
-//  keyboard
-//
-//  Created by Sunghyun Cho on 12/19/22.
-//
-
 import SwiftUI
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
-  @IBOutlet var nextKeyboardButton: UIButton!
-  @IBOutlet var helloButton: UIButton!
-  var proxyBackup: String = ""
-  var proxyHistory: [String] = []
-  var 한글: [String: [String: String]] = [:]
-  var isEditingLastCharacter = false
-  var options: KeyboardOptions?
-  var autocomplete: TopAutocomplete?
-  var uiTextChecker = UITextChecker()
-  override func updateViewConstraints() {
-    super.updateViewConstraints()
-  }
-
-  func loadJsonAsync() {
-    DispatchQueue.global(qos: .background).async {
-      if let path = Bundle.main.path(forResource: "한글.min", ofType: "json") {
-        do {
-          let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-          let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-          if let jsonResult = jsonResult as? [String: Any],
-            let 데이터 = jsonResult as? [String: [String: String]]
-          {
-            self.한글 = 데이터
-          }
-        } catch {
-          exit(1)
-        }
-      }
-    }
-  }
+final class KeyboardViewController: UIInputViewController {
+  private var viewModel: KeyboardViewModel?
+  private var proxyAdapter: KeyboardDocumentProxyAdapter?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,238 +11,69 @@ class KeyboardViewController: UIInputViewController {
   }
 
   private func setup() {
-    if 한글 == [:] {
-      loadJsonAsync()
+    let hangulMap = loadHangulMap()
+    let proxyAdapter = KeyboardDocumentProxyAdapter { [weak self] in
+      self?.textDocumentProxy
     }
-    let nextKeyboardAction = #selector(handleInputModeList(from:with:))
-    let options = KeyboardOptions(
-      colorScheme: traitCollection.userInterfaceStyle == .dark ? .dark : .light,
+
+    let viewModel = KeyboardViewModel(
       needsInputModeSwitchKey: needsInputModeSwitchKey,
-      nextKeyboardAction: nextKeyboardAction,
-      hangulAction: 입력,
-      textAction: composableInput,
-      proxy: textDocumentProxy,
-      dismissKeyboard: dismissKeyboard,
-      deleteAction: deleteAction,
-      spaceAction: spaceAction,
-      returnAction: returnAction,
-      simpleInput: simpleInput
+      nextKeyboardAction: #selector(handleInputModeList(from:with:)),
+      proxy: proxyAdapter,
+      inputEngine: KeyboardInputEngine(hangulMap: hangulMap),
+      autocompleteService: UITextCheckerAutocompleteService(language: "ko_KR"),
+      settingsStore: AppGroupSettingsStore(),
+      feedback: Feedback.shared,
+      dismissKeyboardAction: { [weak self] in
+        self?.dismissKeyboard()
+      }
     )
 
-    let autocomplete = TopAutocomplete(action: autocompleteAction)
-    autocomplete.list = ["", "", ""]
-    let keyboardView = UIHostingController(
-      rootView: KeyboardView().environmentObject(options).environmentObject(autocomplete))
+    let keyboardView = UIHostingController(rootView: KeyboardView().environmentObject(viewModel))
 
-    self.options = options
-    self.autocomplete = autocomplete
+    self.proxyAdapter = proxyAdapter
+    self.viewModel = viewModel
 
     view.addSubview(keyboardView.view)
-    keyboardView.view.invalidateIntrinsicContentSize()
     keyboardView.view.translatesAutoresizingMaskIntoConstraints = false
     keyboardView.view.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     keyboardView.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+
     addChild(keyboardView)
     keyboardView.didMove(toParent: self)
-    updateAutocomplete()
+
+    viewModel.refreshAutocomplete()
   }
 
-  func 입력(key: String, fallback: String) {
-    guard let map = 한글[key] else {
-      simpleInput(fallback)
-      return
+  private func loadHangulMap() -> [String: [String: String]] {
+    guard
+      let path = Bundle.main.path(forResource: "한글.min", ofType: "json"),
+      let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
+      let map = try? JSONDecoder().decode([String: [String: String]].self, from: data)
+    else {
+      return [:]
     }
 
-    let proxy = textDocumentProxy
+    return map
+  }
+}
 
-    if proxy.documentContextBeforeInput == nil
-      || !(proxy.documentContextBeforeInput!.suffix(2)).contains(proxyBackup)
-    {
-      proxyBackup = ""
-      proxyHistory = []
-    }
+final class KeyboardDocumentProxyAdapter: KeyboardTextInputProxy {
+  private let proxyProvider: () -> UITextDocumentProxy?
 
-    if !isEditingLastCharacter {
-      proxy.insertText(fallback)
-      proxyBackup = fallback
-      proxyHistory = [fallback]
-      isEditingLastCharacter = true
-      updateAutocomplete()
-      return
-    }
-    if proxyBackup.count > 1 {
-      let lastTwoCharacters = proxyBackup.suffix(2)
-      if map.keys.contains(String(lastTwoCharacters)) {
-        proxy.deleteBackward()
-        proxy.deleteBackward()
-        let next = map[String(lastTwoCharacters)]!
-        proxy.insertText(next)
-        proxyBackup = next
-        proxyHistory = [next]
-        updateAutocomplete()
-        return
-      }
-    }
-    if proxyBackup.count > 0 {
-      let lastCharacter = proxyBackup.suffix(1)
-      if map.keys.contains(String(lastCharacter)) {
-        proxy.deleteBackward()
-        let next = map[String(lastCharacter)]!
-        proxy.insertText(next)
-        proxyBackup = next
-        if String(lastCharacter).count != next.count {
-          let lastCharacter = next.suffix(1)
-          proxyHistory = [String(lastCharacter)]
-        } else {
-          proxyHistory.append(next)
-        }
-        updateAutocomplete()
-        return
-      }
-    }
-
-    proxy.insertText(fallback)
-    isEditingLastCharacter = true
-    proxyBackup += fallback
-    proxyHistory = [fallback]
-    updateAutocomplete()
+  init(proxyProvider: @escaping () -> UITextDocumentProxy?) {
+    self.proxyProvider = proxyProvider
   }
 
-  func simpleInput(_ input: String) {
-    let proxy = textDocumentProxy
-    proxy.insertText(input)
-    proxyBackup = input
-    proxyHistory = [input]
-    updateAutocomplete()
+  var documentContextBeforeInput: String? {
+    proxyProvider()?.documentContextBeforeInput
   }
 
-  func composableInput(
-    first: String,
-    second: String? = nil,
-    third: String? = nil,
-    fourth: String? = nil
-  ) {
-    let proxy = textDocumentProxy
-    if isEditingLastCharacter {
-      if let lastCharacter = proxy.documentContextBeforeInput?.last {
-        if lastCharacter == first.first {
-          proxy.deleteBackward()
-          proxy.insertText(second ?? first)
-          proxyBackup = second ?? first
-          proxyHistory = []
-          updateAutocomplete()
-          return
-        } else if lastCharacter == second?.first {
-          proxy.deleteBackward()
-          proxy.insertText(third ?? first)
-          proxyBackup = third ?? first
-          proxyHistory = []
-          updateAutocomplete()
-          return
-        } else if lastCharacter == second?.first {
-          proxy.deleteBackward()
-          proxy.insertText(third ?? first)
-          proxyBackup = third ?? first
-          proxyHistory = []
-          updateAutocomplete()
-          return
-        } else if third != nil, lastCharacter == third?.first {
-          proxy.deleteBackward()
-          proxy.insertText(fourth ?? first)
-          proxyBackup = fourth ?? first
-          proxyHistory = []
-          updateAutocomplete()
-          return
-        } else if fourth != nil, lastCharacter == fourth?.first {
-          proxy.deleteBackward()
-          proxy.insertText(first)
-          proxyBackup = first
-          proxyHistory = []
-          updateAutocomplete()
-          return
-        }
-      }
-    }
-    proxy.insertText(first)
-    isEditingLastCharacter = true
-    proxyBackup = first
-    proxyHistory = []
-    updateAutocomplete()
+  func insertText(_ text: String) {
+    proxyProvider()?.insertText(text)
   }
 
-  func deleteAction() {
-    if proxyHistory.count > 1 {
-      let proxy = textDocumentProxy
-      for _ in 0..<(proxyHistory.last?.count ?? 0) {
-        proxy.deleteBackward()
-      }
-      if isEditingLastCharacter {
-        proxyHistory.removeLast()
-      }
-      let last = proxyHistory.last ?? ""
-      proxy.insertText(last)
-      proxyBackup = last
-      updateAutocomplete()
-      return
-    }
-    isEditingLastCharacter = false
-    let proxy = textDocumentProxy
-    proxy.deleteBackward()
-    proxyBackup = ""
-    proxyHistory = []
-    updateAutocomplete()
-  }
-
-  func spaceAction() {
-    if !isEditingLastCharacter {
-      let proxy = textDocumentProxy
-      let allString = proxy.documentContextBeforeInput ?? ""
-      let lastWord = allString.components(separatedBy: " ").last ?? ""
-      UITextChecker.learnWord(lastWord)
-      proxyHistory = []
-      proxyBackup = ""
-      textDocumentProxy.insertText(" ")
-    } else {
-      isEditingLastCharacter = false
-      proxyBackup = ""
-      proxyHistory = []
-    }
-    updateAutocomplete()
-  }
-
-  func returnAction() {
-    let proxy = textDocumentProxy
-    let allString = proxy.documentContextBeforeInput ?? ""
-    let lastWord = allString.components(separatedBy: " ").last ?? ""
-    UITextChecker.learnWord(lastWord)
-    proxyHistory = []
-    proxyBackup = ""
-    proxy.insertText("\n")
-    updateAutocomplete()
-  }
-
-  func autocompleteAction(completion: String) {
-    let proxy = textDocumentProxy
-    while let lastCharacter = proxy.documentContextBeforeInput?.last, lastCharacter != " " {
-      proxy.deleteBackward()
-    }
-    proxy.insertText(completion + " ")
-    proxyBackup = completion
-    UITextChecker.learnWord(completion)
-    proxyHistory = []
-  }
-
-  func updateAutocomplete() {
-    let proxy = textDocumentProxy
-    let allString = proxy.documentContextBeforeInput ?? ""
-    let lastWord = allString.components(separatedBy: " ").last ?? ""
-    let range = NSRange(location: 0, length: lastWord.count)
-    let guesses =
-      uiTextChecker.completions(forPartialWordRange: range, in: lastWord, language: "ko_KR") ?? []
-    if guesses.count > 0, guesses[0] == lastWord {
-      autocomplete?.list = Array(guesses.dropFirst())
-    } else {
-      autocomplete?.list = guesses
-    }
+  func deleteBackward() {
+    proxyProvider()?.deleteBackward()
   }
 }

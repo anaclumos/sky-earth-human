@@ -1,67 +1,48 @@
-//
-//  KeyboardView.swift
-//  keyboard
-//
-//  Created by Sunghyun Cho on 12/20/22.
-//
-
 import SwiftUI
 
 struct KeyboardView: View {
-  @EnvironmentObject var options: KeyboardOptions
-  @EnvironmentObject var autocomplete: TopAutocomplete
-  let sharedDefaults = UserDefaults(suiteName: "group.sh.cho.sky-earth-human.settings")
-
-  var isAutocompleteEnabled: Bool {
-    sharedDefaults?.object(forKey: "isAutocompleteEnabled") as? Bool ?? true
-  }
+  @EnvironmentObject var viewModel: KeyboardViewModel
 
   var body: some View {
     VStack(spacing: 0) {
-      if isAutocompleteEnabled {
+      if viewModel.isAutocompleteEnabled {
         HStack {
-          AutocompleteButton(
-            text: autocomplete.list.count >= 1 ? autocomplete.list[0] : "",
-            action: {
-              if autocomplete.list.count >= 1 {
-                autocomplete.action(autocomplete.list[0])
-              }
-            })
+          autocompleteButton(at: 0)
           Divider()
-          AutocompleteButton(
-            text: autocomplete.list.count >= 2 ? autocomplete.list[1] : "",
-            action: {
-              if autocomplete.list.count >= 2 {
-                autocomplete.action(autocomplete.list[1])
-              }
-            })
+          autocompleteButton(at: 1)
           Divider()
-          AutocompleteButton(
-            text: autocomplete.list.count >= 3 ? autocomplete.list[2] : "",
-            action: {
-              if autocomplete.list.count >= 3 {
-                autocomplete.action(autocomplete.list[2])
-              }
-            })
+          autocompleteButton(at: 2)
         }
         .frame(height: 50, alignment: .center)
-        .background(
-          Color("KeyboardBackground")
-        )
+        .background(Color("KeyboardBackground"))
         .padding(5)
       } else {
-        Spacer()
+        Spacer(minLength: 0)
       }
-      if options.current == .hangul {
+
+      switch viewModel.current {
+      case .hangul:
         HangulView()
-      } else if options.current == .number {
+      case .number:
         NumberView()
-      } else if options.current == .symbol {
+      case .symbol:
         SymbolView()
       }
     }
-    .background(
-      Color("KeyboardBackground")
-    )
+    .background(Color("KeyboardBackground"))
+    .onAppear {
+      viewModel.refreshAutocomplete()
+    }
+  }
+
+  @ViewBuilder
+  private func autocompleteButton(at index: Int) -> some View {
+    let suggestions = viewModel.autocompleteList
+    let text = suggestions.indices.contains(index) ? suggestions[index] : ""
+
+    AutocompleteButton(text: text) {
+      guard suggestions.indices.contains(index) else { return }
+      viewModel.selectAutocomplete(suggestions[index])
+    }
   }
 }

@@ -1,68 +1,40 @@
-//
-//  QuickSettingsView.swift
-//  sky-earth-human
-//
-//  Created by Sunghyun Cho on 2024-01-30.
-//
-
 import SwiftUI
 
 struct QuickSettingsView: View {
-  @State private var isSoundFeedbackEnabled: Bool
-  @State private var isHapticFeedbackEnabled: Bool
-  @State private var isAutocompleteEnabled: Bool
-  private var sharedDefaults: UserDefaults?
-
-  init() {
-    sharedDefaults = UserDefaults(suiteName: "group.sh.cho.sky-earth-human.settings")
-
-    // Check if the UserDefaults value exists and if not, default to true
-    if sharedDefaults?.object(forKey: "isSoundFeedbackEnabled") == nil {
-      _isSoundFeedbackEnabled = State(initialValue: true)
-    } else {
-      _isSoundFeedbackEnabled = State(
-        initialValue: sharedDefaults!.bool(forKey: "isSoundFeedbackEnabled"))
-    }
-
-    if sharedDefaults?.object(forKey: "isHapticFeedbackEnabled") == nil {
-      _isHapticFeedbackEnabled = State(initialValue: true)
-    } else {
-      _isHapticFeedbackEnabled = State(
-        initialValue: sharedDefaults!.bool(forKey: "isHapticFeedbackEnabled"))
-    }
-
-    if sharedDefaults?.object(forKey: "isAutocompleteEnabled") == nil {
-      _isAutocompleteEnabled = State(initialValue: true)
-    } else {
-      _isAutocompleteEnabled = State(
-        initialValue: sharedDefaults!.bool(forKey: "isAutocompleteEnabled"))
-    }
-  }
+  @StateObject private var viewModel = QuickSettingsViewModel()
 
   var body: some View {
     VStack {
-      Toggle("소리 피드백", isOn: $isSoundFeedbackEnabled)
-        .onChange(of: isSoundFeedbackEnabled) { newValue in
-          sharedDefaults?.set(newValue, forKey: "isSoundFeedbackEnabled")
-          sharedDefaults?.synchronize()
-
-        }
+      Toggle("소리 피드백", isOn: $viewModel.isSoundFeedbackEnabled)
       Divider()
-      Toggle("햅틱 피드백", isOn: $isHapticFeedbackEnabled)
-        .onChange(of: isHapticFeedbackEnabled) { newValue in
-          sharedDefaults?.set(newValue, forKey: "isHapticFeedbackEnabled")
-          sharedDefaults?.synchronize()
-
-        }
+      Toggle("햅틱 피드백", isOn: $viewModel.isHapticFeedbackEnabled)
       Divider()
-      Toggle("자동완성 및 추천", isOn: $isAutocompleteEnabled)
-        .onChange(of: isAutocompleteEnabled) { newValue in
-          sharedDefaults?.set(newValue, forKey: "isAutocompleteEnabled")
-          sharedDefaults?.synchronize()
-
-        }
+      Toggle("자동완성 및 추천", isOn: $viewModel.isAutocompleteEnabled)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
+  }
+}
+
+final class QuickSettingsViewModel: ObservableObject {
+  @Published var isSoundFeedbackEnabled: Bool {
+    didSet { settingsStore.set(isSoundFeedbackEnabled, for: .isSoundFeedbackEnabled) }
+  }
+
+  @Published var isHapticFeedbackEnabled: Bool {
+    didSet { settingsStore.set(isHapticFeedbackEnabled, for: .isHapticFeedbackEnabled) }
+  }
+
+  @Published var isAutocompleteEnabled: Bool {
+    didSet { settingsStore.set(isAutocompleteEnabled, for: .isAutocompleteEnabled) }
+  }
+
+  private let settingsStore: SettingsStore
+
+  init(settingsStore: SettingsStore = AppGroupSettingsStore()) {
+    self.settingsStore = settingsStore
+    isSoundFeedbackEnabled = settingsStore.bool(for: .isSoundFeedbackEnabled)
+    isHapticFeedbackEnabled = settingsStore.bool(for: .isHapticFeedbackEnabled)
+    isAutocompleteEnabled = settingsStore.bool(for: .isAutocompleteEnabled)
   }
 }
 

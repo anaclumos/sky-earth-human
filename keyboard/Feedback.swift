@@ -1,52 +1,41 @@
-//
-//  Feedback.swift
-//  keyboard
-//
-//  Created by Sunghyun Cho on 2023-01-21.
-//
-
 import AVFoundation
 import UIKit
 
-class Feedback {
-  static let shared = Feedback()
+final class Feedback: FeedbackService {
+  static let shared = Feedback(settingsStore: AppGroupSettingsStore())
 
-  var sharedDefaults: UserDefaults?
+  private let settingsStore: SettingsStore
+  private let generator = UIImpactFeedbackGenerator(style: .light)
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
-
-  private init() {
-    sharedDefaults = UserDefaults(suiteName: "group.sh.cho.sky-earth-human.settings")
+  init(settingsStore: SettingsStore) {
+    self.settingsStore = settingsStore
   }
 
-  var haptics: Bool {
-    return sharedDefaults?.bool(forKey: "isHapticFeedbackEnabled") ?? true
+  private var hapticsEnabled: Bool {
+    settingsStore.bool(for: .isHapticFeedbackEnabled)
   }
 
-  var sounds: Bool {
-    return sharedDefaults?.bool(forKey: "isSoundFeedbackEnabled") ?? true
+  private var soundsEnabled: Bool {
+    settingsStore.bool(for: .isSoundFeedbackEnabled)
   }
 
   func playHaptics() {
-    if !haptics { return }
+    guard hapticsEnabled else { return }
     generator.impactOccurred()
   }
 
   func playTypeSound() {
-    if !sounds { return }
-    let systemSoundID: SystemSoundID = 1104
-    AudioServicesPlaySystemSound(systemSoundID)
+    guard soundsEnabled else { return }
+    AudioServicesPlaySystemSound(1104)
   }
 
   func playDeleteSound() {
-    if !sounds { return }
-    let systemSoundID: SystemSoundID = 1155
-    AudioServicesPlaySystemSound(systemSoundID)
+    guard soundsEnabled else { return }
+    AudioServicesPlaySystemSound(1155)
   }
 
   func playModifierSound() {
-    if !sounds { return }
-    let systemSoundID: SystemSoundID = 1156
-    AudioServicesPlaySystemSound(systemSoundID)
+    guard soundsEnabled else { return }
+    AudioServicesPlaySystemSound(1156)
   }
 }

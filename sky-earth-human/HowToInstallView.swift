@@ -10,7 +10,7 @@ import SwiftUI
 struct HowToInstallView: View {
   var body: some View {
     Button(action: {
-      UIApplication.shared.open(URL(string: "https://cho.sh/ko/r/BA36FC")!)
+      UIApplication.shared.open(AppURL.installGuide)
     }) {
       Image(systemName: "book.pages").frame(width: 20, alignment: .center)
       Text("설치 방법 읽기").frame(alignment: .center).frame(maxWidth: .infinity, alignment: .leading)

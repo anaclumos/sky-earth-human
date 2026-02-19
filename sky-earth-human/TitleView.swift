@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct TitleView: View {
+  private var appName: String {
+    Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "하늘땅사람"
+  }
+
+  private var appVersion: String {
+    Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "-"
+  }
+
   var body: some View {
-    Text((Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String)!)
+    Text(appName)
       .font(.title).padding(10)
     HStack {
-      Text("버전 " + (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
+      Text("버전 " + appVersion)
       Spacer()
       Button(action: {
-        UIApplication.shared.open(URL(string: "https://cho.sh/ko")!)
+        UIApplication.shared.open(AppURL.website)
       }) {
         Text("조성현 제작")
       }

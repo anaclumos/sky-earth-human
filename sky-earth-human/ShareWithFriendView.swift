@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShareWithFriendView: View {
-  let url = URL(string: "https://apps.apple.com/app/id/1666355842")!
+  let url = AppURL.appStore
   let text = "이 키보드 보셨어요? 아이폰용 키보드인데 갤럭시 천지인이랑 똑같이 생겼어요!"
   let displayText = "친구에게 공유하기"
   var body: some View {
