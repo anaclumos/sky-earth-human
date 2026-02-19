@@ -12,12 +12,7 @@
 		501DB48829633EB5001C4A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		503DF162295179970019A76B /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF161295179970019A76B /* KeyboardView.swift */; };
 		503DF16429517BD50019A76B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF16329517BD50019A76B /* KeyboardButton.swift */; };
-		50541F7D297E5AAA00D3F4E2 /* GoToSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */; };
-		50541F81297E5C3200D3F4E2 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F80297E5C3200D3F4E2 /* TitleView.swift */; };
-		50541F83297E5C9100D3F4E2 /* StoreReviewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */; };
-		50541F85297E5CD900D3F4E2 /* SendEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F84297E5CD900D3F4E2 /* SendEmailView.swift */; };
-		50541F87297E5D3F00D3F4E2 /* ShareWithFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F86297E5D3F00D3F4E2 /* ShareWithFriendView.swift */; };
-		50541F8B297E672D00D3F4E2 /* GoToGitHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50541F8A297E672D00D3F4E2 /* GoToGitHubView.swift */; };
+
 		509749E52974B01900779F75 /* AutocompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E42974B01900779F75 /* AutocompleteButton.swift */; };
 		509749E72974CE8600779F75 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E62974CE8600779F75 /* NumberView.swift */; };
 		509749E92974CEA200779F75 /* TopAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749E82974CEA200779F75 /* TopAutocomplete.swift */; };
@@ -25,9 +20,7 @@
 		509749ED2974D3A700779F75 /* KeyboardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EC2974D3A700779F75 /* KeyboardOptions.swift */; };
 		509749EF2974D71800779F75 /* SymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509749EE2974D71800779F75 /* SymbolView.swift */; };
 		5098A0D6297CB1F40068450A /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098A0D5297CB1F40068450A /* Feedback.swift */; };
-		5098A0D8297CBCEA0068450A /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098A0D7297CBCEA0068450A /* MailView.swift */; };
 		50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */; };
-		50AFDDAC29501257001BF44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDAB29501257001BF44D /* ContentView.swift */; };
 		50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDAD29501258001BF44D /* Assets.xcassets */; };
 		50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AFDDB029501258001BF44D /* Preview Assets.xcassets */; };
 		50AFDDE0295012A5001BF44D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */; };
@@ -36,8 +29,7 @@
 		B1C2D3E4F5061728394A5B6C /* Shared/AppShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10213243546576879A8B9C0 /* Shared/AppShared.swift */; };
 		C1D2E3F40516273849A5B6C7 /* Shared/KeyboardInputEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B2C3D4E5F60718293A4B5 /* Shared/KeyboardInputEngine.swift */; };
 		D1E2F30415263748A9B5C6D7 /* Shared/KeyboardInputEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B2C3D4E5F60718293A4B5 /* Shared/KeyboardInputEngine.swift */; };
-		DAC027802B69F76B009BFE4E /* HowToInstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */; };
-		DAC027822B69F79E009BFE4E /* QuickSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */; };
+		AABB001122334455667788DD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AABB001122334455667788CC /* Settings.bundle */; };
 		E1F20314253647A8B9C5D6E7 /* KeyboardInputEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B4C5 /* KeyboardInputEngineTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,12 +78,7 @@
 		501DB481296336FD001C4A24 /* NextKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyboard.swift; sourceTree = "<group>"; };
 		503DF161295179970019A76B /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		503DF16329517BD50019A76B /* KeyboardButton.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; tabWidth = 2; };
-		50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSettingsView.swift; sourceTree = "<group>"; };
-		50541F80297E5C3200D3F4E2 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewButtonView.swift; sourceTree = "<group>"; };
-		50541F84297E5CD900D3F4E2 /* SendEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailView.swift; sourceTree = "<group>"; };
-		50541F86297E5D3F00D3F4E2 /* ShareWithFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareWithFriendView.swift; sourceTree = "<group>"; };
-		50541F8A297E672D00D3F4E2 /* GoToGitHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToGitHubView.swift; sourceTree = "<group>"; };
+
 		509749E42974B01900779F75 /* AutocompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteButton.swift; sourceTree = "<group>"; };
 		509749E62974CE8600779F75 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		509749E82974CEA200779F75 /* TopAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAutocomplete.swift; sourceTree = "<group>"; };
@@ -99,10 +86,8 @@
 		509749EC2974D3A700779F75 /* KeyboardOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardOptions.swift; sourceTree = "<group>"; };
 		509749EE2974D71800779F75 /* SymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolView.swift; sourceTree = "<group>"; };
 		5098A0D5297CB1F40068450A /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
-		5098A0D7297CBCEA0068450A /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		50AFDDA629501257001BF44D /* sky-earth-human.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sky-earth-human.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sky_earth_humanApp.swift; sourceTree = "<group>"; };
-		50AFDDAB29501257001BF44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50AFDDAD29501258001BF44D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AFDDB029501258001BF44D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50AFDDB729501258001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,8 +96,7 @@
 		50AFDDDD295012A5001BF44D /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AFDDDF295012A5001BF44D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		50AFDDE1295012A5001BF44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToInstallView.swift; sourceTree = "<group>"; };
-		DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSettingsView.swift; sourceTree = "<group>"; };
+		AABB001122334455667788CC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F10213243546576879A8B9C0 /* Shared/AppShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared/AppShared.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,18 +168,9 @@
 			children = (
 				F10213243546576879A8B9C0 /* Shared/AppShared.swift */,
 				0A1B2C3D4E5F60718293A4B5 /* Shared/KeyboardInputEngine.swift */,
-				50541F8A297E672D00D3F4E2 /* GoToGitHubView.swift */,
 				50AFDDAD29501258001BF44D /* Assets.xcassets */,
 				50AFDDA929501257001BF44D /* sky_earth_humanApp.swift */,
-				50AFDDAB29501257001BF44D /* ContentView.swift */,
-				DAC027812B69F79E009BFE4E /* QuickSettingsView.swift */,
-				DAC0277F2B69F76B009BFE4E /* HowToInstallView.swift */,
-				50541F86297E5D3F00D3F4E2 /* ShareWithFriendView.swift */,
-				50541F84297E5CD900D3F4E2 /* SendEmailView.swift */,
-				50541F82297E5C9100D3F4E2 /* StoreReviewButtonView.swift */,
-				50541F7C297E5AAA00D3F4E2 /* GoToSettingsView.swift */,
-				50541F80297E5C3200D3F4E2 /* TitleView.swift */,
-				5098A0D7297CBCEA0068450A /* MailView.swift */,
+				AABB001122334455667788CC /* Settings.bundle */,
 				50AFDDB729501258001BF44D /* Info.plist */,
 				50AFDDAF29501258001BF44D /* Preview Content */,
 			);
@@ -359,6 +334,7 @@
 			files = (
 				50AFDDB129501258001BF44D /* Preview Assets.xcassets in Resources */,
 				50AFDDAE29501258001BF44D /* Assets.xcassets in Resources */,
+				AABB001122334455667788DD /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,19 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50541F8B297E672D00D3F4E2 /* GoToGitHubView.swift in Sources */,
 				A1B2C3D4E5F60718293A4B5C /* Shared/AppShared.swift in Sources */,
-				DAC027802B69F76B009BFE4E /* HowToInstallView.swift in Sources */,
-				50541F7D297E5AAA00D3F4E2 /* GoToSettingsView.swift in Sources */,
 				C1D2E3F40516273849A5B6C7 /* Shared/KeyboardInputEngine.swift in Sources */,
-				50AFDDAC29501257001BF44D /* ContentView.swift in Sources */,
-				50541F81297E5C3200D3F4E2 /* TitleView.swift in Sources */,
-				DAC027822B69F79E009BFE4E /* QuickSettingsView.swift in Sources */,
-				50541F87297E5D3F00D3F4E2 /* ShareWithFriendView.swift in Sources */,
-				50541F85297E5CD900D3F4E2 /* SendEmailView.swift in Sources */,
-				50541F83297E5C9100D3F4E2 /* StoreReviewButtonView.swift in Sources */,
 				50AFDDAA29501257001BF44D /* sky_earth_humanApp.swift in Sources */,
-				5098A0D8297CBCEA0068450A /* MailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -575,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -604,7 +570,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,7 +606,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
